@@ -104,4 +104,5 @@ void				ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 
 int					get_next_line(const int fd, char **line);
+int					ft_isspace(char c);
 #endif

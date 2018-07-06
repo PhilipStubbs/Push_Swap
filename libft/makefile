@@ -10,7 +10,7 @@ SRC = ft_atoi.c ft_bzero.c ft_isalnum.c ft_isalpha.c ft_isascii.c ft_isdigit.c f
 	ft_strequ.c ft_strnequ.c ft_strsub.c ft_strjoin.c ft_strtrim.c ft_strsplit.c ft_lstdel.c ft_strchr_idx.c\
 	ft_itoa.c ft_putendl.c ft_putnbr.c ft_putstr_fd.c ft_putendl_fd.c ft_strcount.c ft_lstdelone.c \
 	ft_putnbr_fd.c ft_strrev.c ft_wordlen.c ft_intlen.c ft_lstadd.c ft_lstnew.c ft_lstiter.c ft_lstmap.c \
-	get_next_line.c\
+	get_next_line.c ft_isspace.c\
 
 OBJ = *.o
 
@@ -20,6 +20,7 @@ $(NAME):
 	gcc -c -Wall -Werror -Wextra $(SRC) -I. -c
 	ar -rc $(NAME) $(OBJ)
 	ranlib $(NAME)
+	rm -f $(OBJ)
 
 clean:
 	rm -f $(OBJ)
