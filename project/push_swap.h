@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: pstubbs <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/07/07 14:01:50 by pstubbs           #+#    #+#             */
+/*   Updated: 2018/07/07 14:01:52 by pstubbs          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 # ifndef PUSH_SWAP_h
 # define PUSH_SWAP_h
 # define ERROR ft_putendl("Error");
@@ -25,7 +37,7 @@ typedef	struct		s_pushswap
 
 t_hold				*malloctime(void);
 int					searchandmalloc(char **str, t_hold *node, int arc);
-int					popstack(char **str, t_hold *node);
+int					popstack(char **str, t_hold *node, int arc);
 void				debugmode(t_hold *node);
 
 #endif
