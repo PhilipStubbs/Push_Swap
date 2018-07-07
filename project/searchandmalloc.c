@@ -47,19 +47,25 @@ int		isvalid(char *s, t_hold *node)
 	return (i);
 }
 
-int		searchandmalloc(char **str, t_hold *node)
+int		searchandmalloc(char **str, t_hold *node, int arc)
 {
 	int	i;
 
 	i = 1;
-	while (str[i] != NULL)
+	if (arc == 2)
+		node->raw = ft_split(str[1]);
+	else
 	{
-		if (isvalid(str[i], node) == 0)
+		node->raw = str;
+		while (node->raw[i] != NULL)
 		{
-			ERROR;
-			return (0);
+			if (isvalid(node->raw[i], node) == 0)
+			{
+				ERROR;
+				return (0);
+			}
+			i++;
 		}
-		i++;
 	}
 	i -= (1 + node->debug + node->colour);
 	node->size = i;
