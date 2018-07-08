@@ -23,6 +23,11 @@ int		main(int arc, char **arv)
 		return (0);
 	popstack(node->raw, node, arc);
 	// printf("%ihello\n", L'\e[0;34m');
+	// node->b->stack[0] = 3;
+	// node->b->stack[1] = 5;
+	debugmode(node);
+	// sa(node);
+	ra(node);
 
 	debugmode(node);
 	printf("size:[%d]	debug:[%d]	colour:[%d]\n",node->size, node->debug, node->colour);

@@ -12,7 +12,7 @@
 
 # ifndef PUSH_SWAP_h
 # define PUSH_SWAP_h
-# define ERROR ft_putendl("Error");
+# define ERROR ft_putendl_fd("Error", 2);
 # include "../libft/libft.h"
 
 #include <stdio.h>
@@ -39,5 +39,8 @@ t_hold				*malloctime(void);
 int					searchandmalloc(char **str, t_hold *node, int arc);
 int					popstack(char **str, t_hold *node, int arc);
 void				debugmode(t_hold *node);
+int					sa(t_hold *node);
+int					pa(t_hold *node);
+int					ra(t_hold *node);
 
 #endif
