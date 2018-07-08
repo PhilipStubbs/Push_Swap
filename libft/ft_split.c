@@ -31,7 +31,7 @@ static int	ft_strc(char const *s)
 		}
 		while (ft_isspace(s[i]) != 1 && s[i] != '\0')
 			i++;
-			count++;
+		count++;
 	}
 	return (count);
 }

@@ -39,8 +39,18 @@ t_hold				*malloctime(void);
 int					searchandmalloc(char **str, t_hold *node, int arc);
 int					popstack(char **str, t_hold *node, int arc);
 void				debugmode(t_hold *node);
+
+void				ft_intcpy(int *dest, const int *src, size_t n);
+
 int					sa(t_hold *node);
 int					pa(t_hold *node);
 int					ra(t_hold *node);
+int					rra(t_hold *node);
+
+int					sb(t_hold *node);
+int					pb(t_hold *node);
+int					rb(t_hold *node);
+int					rrb(t_hold *node);
+
 
 #endif
