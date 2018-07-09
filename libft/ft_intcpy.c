@@ -1,25 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   poplink.c                                          :+:      :+:    :+:   */
+/*   ft_intcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pstubbs <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/07/09 10:54:47 by pstubbs           #+#    #+#             */
-/*   Updated: 2018/07/09 10:54:48 by pstubbs          ###   ########.fr       */
+/*   Created: 2018/07/09 12:29:34 by pstubbs           #+#    #+#             */
+/*   Updated: 2018/07/09 12:29:37 by pstubbs          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-t_stack		*popstart(t_stack **list)
-{	
-	t_stack *ret;
+void	ft_intcpy(int *dest, const int *src, size_t n)
+{
+	int		*p1;
+	int		*p2;
+	int		i;
 
-	if (*list == NULL)
-		return (NULL);
-	ret = (*list);
-	(*list) = (*list)->next;
-	// free(ret);
-	return (ret);
+	i = 0;
+	p1 = dest;
+	p2 = (int*)src;
+	while (i <= (int)n)
+	{
+		*p1++ = *p2++;
+		i++;
+	}
 }

@@ -29,18 +29,17 @@ int					sa(t_hold *node)
 
 int					pa(t_hold *node)
 {
-	t_stack	*tempa;
 	t_stack	*tempb;
 
-	tempa = node->a;
-	tempb = node->b;
-
-	if (tempb == NULL)
+	if (node->b == NULL)
 	{
 		write(1, "EXIT\n", 5);
 		return (0);
 	}
-
+	
+	tempb = popstart(&node->b);
+	tempb->next = node->a;
+	node->a = tempb;
 	return (1);
 }
 

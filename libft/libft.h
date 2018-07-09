@@ -106,4 +106,5 @@ t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 int					get_next_line(const int fd, char **line);
 int					ft_isspace(char c);
 char				**ft_split(char *str);
+void				ft_intcpy(int *dest, const int *src, size_t n);
 #endif

@@ -20,17 +20,9 @@
 typedef	struct		s_stack
 {
 	int				data;
-	// size_t			content_size;
 	int				loc;
 	struct s_stack	*next;
 }					t_stack;
-
-// typedef	struct		s_stack
-// {
-// 	int				*stack;
-// 	int				size;
-// 	int				loc;
-// }					t_stack;
 
 typedef	struct		s_pushswap
 {
@@ -48,15 +40,14 @@ int					searchandmalloc(char **str, t_hold *node, int arc);
 int					populatestack(char **str, t_hold *node);
 void				debugmode(t_hold *node);
 t_stack				*popstart(t_stack **list);
-// void				ft_intcpy(int *dest, const int *src, size_t n);
 
 int					sa(t_hold *node);
 int					pa(t_hold *node);
 // int					ra(t_hold *node);
 // int					rra(t_hold *node);
 
-// int					sb(t_hold *node);
-// int					pb(t_hold *node);
+int					sb(t_hold *node);
+int					pb(t_hold *node);
 // int					rb(t_hold *node);
 // int					rrb(t_hold *node);
 

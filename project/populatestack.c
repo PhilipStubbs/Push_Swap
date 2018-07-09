@@ -63,5 +63,5 @@ int		populatestack(char **str, t_hold *node)
 		i++;
 	}
 	ret->next = NULL;
-	return (i);
+	return (doublecheck(node));
 }

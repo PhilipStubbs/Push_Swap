@@ -23,15 +23,20 @@ int		main(int arc, char **arv)
 		return (0);
 	// write(1, "x\n",2);
 
-	populatestack(node->raw, node);
+	if(populatestack(node->raw, node) == 0);
+		return (0);
 	// write(1, "x\n",2);
 	debugmode(node);
 	// sa(node);
-	// pa(node);
+	pb(node);
+	pb(node);
 
 
 
 	debugmode(node);
+
+	pa(node);
+		debugmode(node);
 	printf("size:[%d]	debug:[%d]	colour:[%d]\n",node->size, node->debug, node->colour);
 	return (1);
 

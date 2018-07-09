@@ -12,18 +12,39 @@
 
 #include "push_swap.h"
 
-void	output(t_stack *temp)
+int		output(t_stack *temp)
 {
-	if (temp != NULL)
+
+	ft_putchar(' ');
+	ft_putnbr(temp->data);
+	return (1);
+}
+
+void		loop(t_stack *tempa, t_stack *tempb, int isplaced, int size)
+{
+	int i;
+
+	i = 0;
+	while (i < size)
 	{
-		ft_putchar(' ');
-		ft_putnbr(temp->data);
+		if (tempa->next != NULL)
+		{
+			isplaced = output(tempa);
+			tempa = tempa->next;
+		}
+		if (tempb != NULL)
+		{	
+			ft_putchar('\t');
+			isplaced = output(tempb);
+			tempb = tempb->next;
+		}
+		i++;
+		if (isplaced == 1)
+			ft_putchar('\n');
+		isplaced = 0;
 	}
-	else
-	{
-		ft_putchar(' ');
-		ft_putchar(' ');
-	}
+	ft_putendl("___	___");
+	ft_putendl(" a	 b");
 }
 
 void	debugmode(t_hold *node)
@@ -31,27 +52,13 @@ void	debugmode(t_hold *node)
 	int i;
 	t_stack	*tempa;
 	t_stack *tempb;
+	int	isplaced;
 
 	if (node->debug != 1)
 		return ;
 	i = 0;
 	tempa = node->a;
 	tempb = node->b;
-	while (i < node->size)
-	{
-		if (tempa->next != NULL)
-		{
-			output(tempa);
-			tempa = tempa->next;
-		}
-		if (tempb != NULL)
-		{	
-			output(tempb);
-			tempb = tempb->next;
-		}
-		i++;
-		ft_putchar('\n');
-	}
-	ft_putendl("___	___");
-	ft_putendl(" a	 b");
+	isplaced = 0;
+	loop(tempa, tempb, isplaced, node->size);
 }
