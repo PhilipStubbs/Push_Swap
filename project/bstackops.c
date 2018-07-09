@@ -33,7 +33,7 @@ int					pb(t_hold *node)
 
 	if (node->a == NULL)
 	{
-		write(1, "EXIT\n", 5);
+		// write(1, "EXIT\n", 5);
 		return (0);
 	}
 	tempa = popstart(&node->a);

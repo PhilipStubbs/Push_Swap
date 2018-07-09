@@ -33,7 +33,7 @@ int					pa(t_hold *node)
 
 	if (node->b == NULL)
 	{
-		write(1, "EXIT\n", 5);
+		// write(1, "EXIT\n", 5);
 		return (0);
 	}
 	
