@@ -27,7 +27,7 @@ void		loop(t_stack *tempa, t_stack *tempb, int isplaced, int size)
 	i = 0;
 	while (i < size)
 	{
-		if (tempa->next != NULL)
+		if (tempa != NULL)
 		{
 			isplaced = output(tempa);
 			tempa = tempa->next;
@@ -49,14 +49,12 @@ void		loop(t_stack *tempa, t_stack *tempb, int isplaced, int size)
 
 void	debugmode(t_hold *node)
 {
-	int i;
 	t_stack	*tempa;
 	t_stack *tempb;
 	int	isplaced;
 
 	if (node->debug != 1)
 		return ;
-	i = 0;
 	tempa = node->a;
 	tempb = node->b;
 	isplaced = 0;

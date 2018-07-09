@@ -19,7 +19,7 @@ int					sa(t_hold *node)
 
 	tempa = node->a;
 	tempa = tempa->next;
-	if (tempa->next == NULL)
+	if (tempa == NULL)
 		return (0);
 	tmp = node->a->data;
 	node->a->data = tempa->data;
@@ -33,27 +33,32 @@ int					pa(t_hold *node)
 
 	if (node->b == NULL)
 	{
-		// write(1, "EXIT\n", 5);
+		write(1, "AEXIT\n", 5);
 		return (0);
 	}
-	
 	tempb = popstart(&node->b);
 	tempb->next = node->a;
 	node->a = tempb;
 	return (1);
 }
 
-// sa : swap a - swap the first 2 elements at the top of stack a. Do nothing if there is only one or no elements).
+int					ra(t_hold *node)
+{
 
-// sb : swap b - swap the first 2 elements at the top of stack b. Do nothing if there is only one or no elements).
+	t_stack *temp;
+	t_stack *tmplist;
 
+	temp = popstart(&node->a);
+	temp->next = NULL;
+	tmplist = node->a;
+	while (tmplist != NULL)
+		tmplist = tmplist->next;
+	tmplist->next = temp;
+	return (1);
+}
 // ss : sa and sb at the same time.
 
-// pa : push a - take the first element at the top of b and put it at the top of a. Do
-// nothing if b is empty.
 
-// pb : push b - take the first element at the top of a and put it at the top of b. Do
-// nothing if a is empty.
 
 // ra : rotate a - shift up all elements of stack a by 1. The first element becomes
 // the last one.

@@ -25,22 +25,37 @@ int		main(int arc, char **arv)
 
 	if(populatestack(node->raw, node) == 0)
 		return (0);
+
 	// write(1, "x\n",2);
 	debugmode(node);
 	// sa(node);
-	pb(node);
-	pb(node);
+	// pb(node);
+	// pb(node);
+	// sb(node);
+	// pb(node);
+	ra(node);
+
 		
 
-
-
-	debugmode(node);
 	
+
+	// debugmode(node);
+	// 
 	pa(node);
 
-	// pa(node);
-		debugmode(node);
-	printf("size:[%d]	debug:[%d]	colour:[%d]\n",node->size, node->debug, node->colour);
+	pa(node);
+	// debugmode(node);
+
+	int	count;
+	count = 0;
+	debugmode(node);
+	while (node->a != NULL)
+	{
+		count++;
+		node->a = node->a->next;
+	}
+
+	printf("str_size:[%d]	list_size:[%d]	debug:[%d]	colour:[%d]\n",node->size, count, node->debug, node->colour);
 	return (1);
 
 }

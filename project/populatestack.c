@@ -23,17 +23,19 @@ int		createalist(char **str, t_hold *node)
 	ret = node->a;
 	while (str[size])
 		size++;
-	while (i < size - 1)
+	while (i < size - 2)
 	{
 		// printf("%d\n", size);
 		ret->next = (t_stack*)malloc(sizeof(t_stack));
 		ret = ret->next;
+		// ret->next = NULL;
 		ret->data = 0;
 		ret->loc = 0;
 		i++;
 		// write(1, "x", 1);
 	}
 	ret->next = NULL;
+	
 	node->b = NULL;
 	return (1);
 }

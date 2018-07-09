@@ -43,7 +43,7 @@ t_stack				*popstart(t_stack **list);
 
 int					sa(t_hold *node);
 int					pa(t_hold *node);
-// int					ra(t_hold *node);
+int					ra(t_hold *node);
 // int					rra(t_hold *node);
 
 int					sb(t_hold *node);
