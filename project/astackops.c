@@ -12,88 +12,59 @@
 
 #include "push_swap.h"
 
-// static void	printnode(int	*ar, int  size)
-// {
-// 	int	i;
-
-// 	i = 0;
-// 	while (i < size)
-// 		printf("%d | ",ar[i++] );
-// 	printf("\n");
-// }
-
-int		sa(t_hold *node)
+int					sa(t_hold *node)
 {
-	int	temp;
+	t_stack	*tempa;
+	int		tmp;
 
-	if (node->a->stack[1] == 0)
+	tempa = node->a;
+	tempa = tempa->next;
+	if (tempa->next == NULL)
 		return (0);
-	temp = node->a->stack[0];
-	node->a->stack[0] = node->a->stack[1];
-	node->a->stack[1] = temp;
+	tmp = node->a->data;
+	node->a->data = tempa->data;
+	tempa->data = tmp;
 	return (1);
 }
 
-int		pa(t_hold *node)
-{	
-	int	*tempb;
-	int	*tempa;
+int					pa(t_hold *node)
+{
+	t_stack	*tempa;
+	t_stack	*tempb;
 
-	if (node->b->stack[1] == 0 && node->b->stack[0] == 0)
+	tempa = node->a;
+	tempb = node->b;
+
+	if (tempb == NULL)
+	{
+		write(1, "EXIT\n", 5);
 		return (0);
-	tempa = (int*)ft_memalloc(sizeof(char)* node->size);
-	tempb = (int*)ft_memalloc(sizeof(char)* node->size);
-	ft_bzero(tempa, node->size);
-	ft_bzero(tempb, node->size);
-	ft_intcpy(tempb , node->b->stack+1, node->size);			// cpy into tempb with our first num
-	ft_intcpy(tempa + 1 , node->a->stack, node->size);			// cpy into tempa with out first num
-	tempa[0] = node->b->stack[0];							// sets first to b[0]
-	ft_intcpy(node->a->stack, tempa, node->size);				// cpy that into node stack
-	ft_bzero(tempb, node->size);	
-	ft_intcpy(tempb, node->b->stack, node->size); 				// cyps all into tempb
-	ft_intcpy(node->b->stack, tempb+1, (node->size-2));		//cpy into stack with out first num
-	free(tempa);
-	free(tempb);
-	return(1);
-}
+	}
 
-int		ra(t_hold *node)
-{
-	int	temp;
-
-	temp = node->a->stack[0];
-	ft_intcpy(node->a->stack, node->a->stack+1, node->size);
-	node->a->stack[node->size-1] = temp;
 	return (1);
 }
 
-int		rra(t_hold *node)
-{
-	int	temp;
-	int	*tempa;
+// sa : swap a - swap the first 2 elements at the top of stack a. Do nothing if there is only one or no elements).
 
-	temp = node->a->stack[node->size - 1];
-	tempa = (int*)ft_memalloc(sizeof(char)* node->size);
-	ft_intcpy(tempa, node->a->stack, node->size);
-	ft_intcpy(node->a->stack+1, tempa, node->size);
-	node->a->stack[0] = temp;
-	free(tempa);
-	return (1);
-}
+// sb : swap b - swap the first 2 elements at the top of stack b. Do nothing if there is only one or no elements).
 
+// ss : sa and sb at the same time.
 
+// pa : push a - take the first element at the top of b and put it at the top of a. Do
+// nothing if b is empty.
 
+// pb : push b - take the first element at the top of a and put it at the top of b. Do
+// nothing if a is empty.
 
+// ra : rotate a - shift up all elements of stack a by 1. The first element becomes
+// the last one.
 
+// rb : rotate b - shift up all elements of stack b by 1. The first element becomes the last one.
 
+// rr : ra and rb at the same time.
 
+// rra : reverse rotate a - shift down all elements of stack a by 1. The flast element becomes the first one.
 
+// rrb : reverse rotate b - shift down all elements of stack b by 1. The flast element becomes the first one.
 
-
-
-
-
-
-
-
-
+// rrr : rra and rrb at the same time.

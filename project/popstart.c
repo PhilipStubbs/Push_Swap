@@ -1,38 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   poplink.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pstubbs <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/07/07 14:01:33 by pstubbs           #+#    #+#             */
-/*   Updated: 2018/07/07 14:01:34 by pstubbs          ###   ########.fr       */
+/*   Created: 2018/07/09 10:54:47 by pstubbs           #+#    #+#             */
+/*   Updated: 2018/07/09 10:54:48 by pstubbs          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int		main(int arc, char **arv)
-{
-	t_hold	*node;
+t_stack		*popstart(t_stack **list)
+{	
+	t_stack *ret;
 
-	(void)arc;
-	node = malloctime();
-
-	if (searchandmalloc(arv, node, arc) == 0)
-		return (0);
-	// write(1, "x\n",2);
-
-	populatestack(node->raw, node);
-	// write(1, "x\n",2);
-	debugmode(node);
-	// sa(node);
-	// pa(node);
-
-
-
-	debugmode(node);
-	printf("size:[%d]	debug:[%d]	colour:[%d]\n",node->size, node->debug, node->colour);
-	return (1);
-
+	if (*list == NULL)
+		return (NULL);
+	ret = (*list);
+	(*list) = (*list)->next;
+	free(ret);
+	return (ret);
 }

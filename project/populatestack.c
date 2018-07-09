@@ -34,19 +34,16 @@ int		createalist(char **str, t_hold *node)
 		// write(1, "x", 1);
 	}
 	ret->next = NULL;
+	node->b = NULL;
 	return (1);
 }
 
-int		populatestack(char **str, t_hold *node, int arc)
+int		populatestack(char **str, t_hold *node)
 {
 	int	i;
 	int	dx;
-	int	sti;
 	t_stack	*ret;
 
-	(void)arc;
-	i = 0;
-	sti = 0;
 	createalist(str, node);
 	ret = node->a;
 	i = 0;
@@ -59,13 +56,12 @@ int		populatestack(char **str, t_hold *node, int arc)
 			!(str[i][dx] == '-' && str[i][dx + 1] == 'c'))
 		{
 			ret->data = atoi(str[i]);
-			ret->loc = sti;
 			ret = ret->next;
 			if (ret == NULL)
 				return (1);
-			sti++;
 		}
 		i++;
 	}
+	ret->next = NULL;
 	return (i);
 }
