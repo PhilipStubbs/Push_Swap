@@ -12,26 +12,57 @@
 
 #include "push_swap.h"
 
-int		popstack(char **str, t_hold *node, int arc)
+int		createalist(char **str, t_hold *node)
+{
+	int	i;
+	int	size;
+	t_stack	*ret;
+
+	i = 0;
+	size = 0;
+	ret = node->a;
+	while (str[size])
+		size++;
+	while (i < size)
+	{
+		// printf("%d\n", size);
+		ret->next = (t_stack*)malloc(sizeof(t_stack));
+		ret = ret->next;
+		ret->data = 0;
+		ret->loc = 0;
+		i++;
+		// write(1, "x", 1);
+	}
+	ret->next = NULL;
+	return (1);
+}
+
+int		populatestack(char **str, t_hold *node, int arc)
 {
 	int	i;
 	int	dx;
 	int	sti;
+	t_stack	*ret;
 
-	i = 1;
+	(void)arc;
+	i = 0;
 	sti = 0;
-	if (arc == 2)
-		i = 0;
+	createalist(str, node);
+	ret = node->a;
+	i = 0;
 	while (str[i])
 	{
 		dx = 0;
 		while (ft_isspace(str[i][dx]) == 1)
 			dx++;
-
 		if (!(str[i][dx] == '-' && str[i][dx + 1] == 'v') &&
 			!(str[i][dx] == '-' && str[i][dx + 1] == 'c'))
 		{
-			node->a->stack[sti] = ft_atoi(str[i]);
+			ret->data = atoi(str[i]);
+			ret->loc = sti;
+			ret = ret->next;
+			if (ret == NULL)
+				return (1);
 			sti++;
 		}
 		i++;

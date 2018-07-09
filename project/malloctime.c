@@ -22,13 +22,19 @@ t_hold *malloctime(void)
 	ret->size = 0;
 	ret->debug = 0;
 	ret->colour = 0;
-	ret->a = (t_stack*)ft_memalloc(sizeof(t_stack));
-	ret->b = (t_stack*)ft_memalloc(sizeof(t_stack));
-	ret->a->stack = (int*)ft_memalloc(sizeof(int));
-	ret->a->size = 0;
+	ret->a = (t_stack*)malloc(sizeof(t_stack));
+	ret->b = (t_stack*)malloc(sizeof(t_stack));
+	ret->a->data = 0;
 	ret->a->loc = 0;
-	ret->b->stack = (int*)ft_memalloc(sizeof(int));
-	ret->b->size = 0;
+	ret->b->data = 0;
 	ret->b->loc = 0;
+	// ret->a = (t_stack*)ft_memalloc(sizeof(t_stack));
+	// ret->b = (t_stack*)ft_memalloc(sizeof(t_stack));
+	// ret->a->stack = (int*)ft_memalloc(sizeof(int));
+	// ret->a->size = 0;
+	// ret->a->loc = 0;
+	// ret->b->stack = (int*)ft_memalloc(sizeof(int));
+	// ret->b->size = 0;
+	// ret->b->loc = 0;
 	return(ret);
 }

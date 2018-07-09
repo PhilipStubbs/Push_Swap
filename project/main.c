@@ -21,19 +21,10 @@ int		main(int arc, char **arv)
 
 	if (searchandmalloc(arv, node, arc) == 0)
 		return (0);
-	popstack(node->raw, node, arc);
-	// printf("%ihello\n", L'\e[0;34m');
-	// node->b->stack[0] = 3;
-	// node->b->stack[1] = 5;
-	// debugmode(node);
-	// sa(node);
-	debugmode(node);
-	pb(node);
-	pb(node);
-	pb(node);
-	debugmode(node);
-	pb(node);
-	// rb(node);
+	// write(1, "x\n",2);
+	populatestack(node->raw, node, arc);
+	// write(1, "x\n",2);
+
 
 	debugmode(node);
 	printf("size:[%d]	debug:[%d]	colour:[%d]\n",node->size, node->debug, node->colour);
