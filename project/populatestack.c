@@ -38,6 +38,15 @@ int		createalist(char **str, t_hold *node)
 	return (1);
 }
 
+int		doublecheck(t_hold *node)
+{
+	t_stack	temp;
+
+	
+
+
+}
+
 int		populatestack(char **str, t_hold *node)
 {
 	int	i;
