@@ -18,8 +18,10 @@ int		sb(t_hold *node)
 	int		tmp;
 
 	tempb = node->b;
+	if (tempb->next == NULL)
+		return (1);
 	if (tempb == NULL)
-		return (0);
+		return (1);
 	tempb = tempb->next;
 	tmp = node->b->data;
 	node->b->data = tempb->data;
@@ -33,8 +35,7 @@ int		pb(t_hold *node)
 
 	if (node->a == NULL)
 	{
-		write(1, "BEXIT\n", 6);
-		return (0);
+		return (1);
 	}
 	tempa = startpop(&node->a);
 	tempa->next = node->b;
@@ -48,7 +49,7 @@ int		rb(t_hold *node)
 	t_stack *tmplist;
 
 	if (listsize(node->b) <= 1)
-		return (0);
+		return (1);
 	temp = startpop(&node->b);
 	temp->next = NULL;
 	tmplist = node->b;
@@ -64,7 +65,7 @@ int		rrb(t_hold *node)
 	t_stack	*lst;
 
 	if (listsize(node->b) <= 1)
-		return (0);
+		return (1);
 	tmp = endpop(&node->b);
 	lst = (node->b);
 	tmp->next = lst;

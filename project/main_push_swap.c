@@ -12,18 +12,17 @@
 
 #include "push_swap.h"
 
-int		push_swap_main(int arc, char **arv)
+int		main(int arc, char **arv)
 {
 	t_hold	*node;
 
-	(void)arc;
 	node = malloctime();
 
 	if (searchandmalloc(arv, node, arc) == 0)
 		return (0);
 	// write(1, "x\n",2);
 
-	if(populatestack(node->raw, node) == 0)
+	if(populatestack(node->raw, node, 0) == 0)
 		return (0);
 
 	// write(1, "x\n",2);
@@ -37,6 +36,7 @@ int		push_swap_main(int arc, char **arv)
 	// sb(node);
 	// pb(node);
 	// ra(node);
+
 
 	// ra(node);
 	// ra(node);

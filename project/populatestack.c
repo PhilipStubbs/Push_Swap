@@ -36,12 +36,14 @@ int		createalist(char **str, t_hold *node)
 	return (1);
 }
 
-int		doublecheck(t_hold *node)
+int		doublecheck(t_hold *node, int checker)
 {
 	t_stack	*temp;
 	t_stack *list;
 
 	temp = node->a;
+	if (checker == 1)
+		return (1);
 	while (temp != NULL)
 	{
 		list = temp;
@@ -60,7 +62,7 @@ int		doublecheck(t_hold *node)
 	return (1);
 }
 
-int		populatestack(char **str, t_hold *node)
+int		populatestack(char **str, t_hold *node, int checker)
 {
 	int		i;
 	int		dx;
@@ -80,10 +82,10 @@ int		populatestack(char **str, t_hold *node)
 			ret->data = atoi(str[i]);
 			ret = ret->next;
 			if (ret == NULL)
-				return (doublecheck(node));
+				return (doublecheck(node, checker));
 		}
 		i++;
 	}
 	ret->next = NULL;
-	return (doublecheck(node));
+	return (doublecheck(node, checker));
 }

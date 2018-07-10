@@ -18,8 +18,10 @@ int		sa(t_hold *node)
 	int		tmp;
 
 	tempa = node->a;
+	if (tempa->next == NULL)
+		return (1);
 	if (tempa == NULL)
-		return (0);
+		return (1);
 	tempa = tempa->next;
 	tmp = node->a->data;
 	node->a->data = tempa->data;
@@ -33,8 +35,7 @@ int		pa(t_hold *node)
 
 	if (node->b == NULL)
 	{
-		write(1, "AEXIT\n", 5);
-		return (0);
+		return (1);
 	}
 	tempb = startpop(&node->b);
 	tempb->next = node->a;
@@ -48,7 +49,7 @@ int		ra(t_hold *node)
 	t_stack *tmplist;
 
 	if (listsize(node->a) <= 1)
-		return (0);
+		return (1);
 	temp = startpop(&node->a);
 	temp->next = NULL;
 	tmplist = node->a;
@@ -64,7 +65,7 @@ int		rra(t_hold *node)
 	t_stack	*lst;
 
 	if (listsize(node->a) <= 1)
-		return (0);
+		return (1);
 	tmp = endpop(&node->a);
 	lst = (node->a);
 	tmp->next = lst;
