@@ -22,6 +22,5 @@ t_stack		*startpop(t_stack **list)
 	size = listsize(*list);
 	ret = (*list);
 	(*list) = (*list)->next;
-	// free(ret);
 	return (ret);
 }

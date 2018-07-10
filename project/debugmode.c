@@ -14,13 +14,12 @@
 
 int		output(t_stack *temp)
 {
-
 	ft_putchar(' ');
 	ft_putnbr(temp->data);
 	return (1);
 }
 
-void		loop(t_stack *tempa, t_stack *tempb, int isplaced, int size)
+void	loop(t_stack *tempa, t_stack *tempb, int isplaced, int size)
 {
 	int i;
 
@@ -33,7 +32,7 @@ void		loop(t_stack *tempa, t_stack *tempb, int isplaced, int size)
 			tempa = tempa->next;
 		}
 		if (tempb != NULL)
-		{	
+		{
 			ft_putchar('\t');
 			isplaced = output(tempb);
 			tempb = tempb->next;
@@ -50,8 +49,8 @@ void		loop(t_stack *tempa, t_stack *tempb, int isplaced, int size)
 void	debugmode(t_hold *node)
 {
 	t_stack	*tempa;
-	t_stack *tempb;
-	int	isplaced;
+	t_stack	*tempb;
+	int		isplaced;
 
 	if (node->debug != 1)
 		return ;

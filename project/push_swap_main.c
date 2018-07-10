@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-int		main(int arc, char **arv)
+int		push_swap_main(int arc, char **arv)
 {
 	t_hold	*node;
 
@@ -28,11 +28,11 @@ int		main(int arc, char **arv)
 
 	// write(1, "x\n",2);
 	// debugmode(node);
-	sa(node);
+	// sa(node);
 
-	ss(node);
-	rr(node);
-	rrr(node);
+	// ss(node);
+	// rr(node);
+	// rrr(node);
 	// ss(node);
 	// sb(node);
 	// pb(node);

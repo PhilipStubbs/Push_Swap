@@ -10,12 +10,13 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-# ifndef PUSH_SWAP_h
-# define PUSH_SWAP_h
-# define ERROR ft_putendl_fd("Error", 2);
-# include "../libft/libft.h"
+#ifndef PUSH_SWAP_H
+# define PUSH_SWAP_H
 
+# include "../libft/libft.h"
 #include <stdio.h>
+
+# define ERROR ft_putendl_fd("Error", 2);
 
 typedef	struct		s_stack
 {

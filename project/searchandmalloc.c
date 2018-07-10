@@ -12,14 +12,8 @@
 
 #include "push_swap.h"
 
-// void	mallocstacks(t_hold *node, int size)
-// {
-// 	node->a->stack = (int*)ft_memalloc(sizeof(int) * size);
-// 	node->b->stack = (int*)ft_memalloc(sizeof(int) * size);
-// }
-
 int		isflag(char *s, t_hold *node)
-{	
+{
 	int i;
 
 	i = 0;
@@ -40,8 +34,6 @@ int		isflag(char *s, t_hold *node)
 		if (s[i] == '\0')
 			return (1);
 	}
-	// if (ft_strcmp(s, "-2147483647"))
-
 	return (0);
 }
 
@@ -50,7 +42,7 @@ int		isvalid(char *s, t_hold *node)
 	int	i;
 
 	i = 0;
-	while(s[i])
+	while (s[i])
 	{
 		while (ft_isspace(s[i]) == 1 && s[i] != '\0')
 			i++;
@@ -61,23 +53,20 @@ int		isvalid(char *s, t_hold *node)
 			else
 				return (0);
 		}
-
 		i++;
 	}
 	return (i);
 }
 
-int		sizefind(t_hold *node, int arc)
+int		sizefind(t_hold *node)
 {
 	int	i;
-	(void)arc;
 
 	i = 0;
 	while (node->raw[i] != NULL)
 	{
 		i++;
 	}
-
 	i -= (node->debug + node->colour);
 	return (i);
 }
@@ -93,7 +82,7 @@ int		searchandmalloc(char **str, t_hold *node, int arc)
 	}
 	else
 	{
-		node->raw = str+1;
+		node->raw = str + 1;
 	}
 	while (node->raw[i] != NULL)
 	{
@@ -104,7 +93,6 @@ int		searchandmalloc(char **str, t_hold *node, int arc)
 		}
 		i++;
 	}
-	node->size = sizefind(node, arc);
-	// mallocstacks(node, node->size);
+	node->size = sizefind(node);
 	return (i);
 }

@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-int					sb(t_hold *node)
+int		sb(t_hold *node)
 {
 	t_stack	*tempb;
 	int		tmp;
@@ -21,14 +21,13 @@ int					sb(t_hold *node)
 	if (tempb == NULL)
 		return (0);
 	tempb = tempb->next;
-
 	tmp = node->b->data;
 	node->b->data = tempb->data;
 	tempb->data = tmp;
 	return (1);
 }
 
-int					pb(t_hold *node)
+int		pb(t_hold *node)
 {
 	t_stack	*tempa;
 
@@ -43,10 +42,11 @@ int					pb(t_hold *node)
 	return (1);
 }
 
-int					rb(t_hold *node)
+int		rb(t_hold *node)
 {
 	t_stack *temp;
 	t_stack *tmplist;
+
 	if (listsize(node->b) <= 1)
 		return (0);
 	temp = startpop(&node->b);
@@ -58,11 +58,11 @@ int					rb(t_hold *node)
 	return (1);
 }
 
-int					rrb(t_hold *node)
+int		rrb(t_hold *node)
 {
 	t_stack	*tmp;
 	t_stack	*lst;
-	
+
 	if (listsize(node->b) <= 1)
 		return (0);
 	tmp = endpop(&node->b);

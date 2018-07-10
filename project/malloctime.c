@@ -10,10 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "push_swap.h"
 
-t_hold *malloctime(void)
+t_hold	*malloctime(void)
 {
 	t_hold	*ret;
 
@@ -28,13 +27,5 @@ t_hold *malloctime(void)
 	ret->a->loc = 0;
 	ret->b->data = 0;
 	ret->b->loc = 0;
-	// ret->a = (t_stack*)ft_memalloc(sizeof(t_stack));
-	// ret->b = (t_stack*)ft_memalloc(sizeof(t_stack));
-	// ret->a->stack = (int*)ft_memalloc(sizeof(int));
-	// ret->a->size = 0;
-	// ret->a->loc = 0;
-	// ret->b->stack = (int*)ft_memalloc(sizeof(int));
-	// ret->b->size = 0;
-	// ret->b->loc = 0;
-	return(ret);
+	return (ret);
 }
