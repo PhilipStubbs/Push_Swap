@@ -18,9 +18,10 @@ int					sb(t_hold *node)
 	int		tmp;
 
 	tempb = node->b;
-	tempb = tempb->next;
 	if (tempb == NULL)
 		return (0);
+	tempb = tempb->next;
+
 	tmp = node->b->data;
 	node->b->data = tempb->data;
 	tempb->data = tmp;
@@ -36,29 +37,38 @@ int					pb(t_hold *node)
 		write(1, "BEXIT\n", 6);
 		return (0);
 	}
-	tempa = popstart(&node->a);
+	tempa = startpop(&node->a);
 	tempa->next = node->b;
 	node->b = tempa;
 	return (1);
 }
 
-// sa : swap a - swap the first 2 elements at the top of stack a. Do nothing if there is only one or no elements).
+int					rb(t_hold *node)
+{
+	t_stack *temp;
+	t_stack *tmplist;
+	if (listsize(node->b) <= 1)
+		return (0);
+	temp = startpop(&node->b);
+	temp->next = NULL;
+	tmplist = node->b;
+	while (tmplist->next != NULL)
+		tmplist = tmplist->next;
+	tmplist->next = temp;
+	return (1);
+}
 
-// sb : swap b - swap the first 2 elements at the top of stack b. Do nothing if there is only one or no elements).
-
-// ss : sa and sb at the same time.
-
-
-
-// ra : rotate a - shift up all elements of stack a by 1. The first element becomes
-// the last one.
-
-// rb : rotate b - shift up all elements of stack b by 1. The first element becomes the last one.
-
-// rr : ra and rb at the same time.
-
-// rra : reverse rotate a - shift down all elements of stack a by 1. The flast element becomes the first one.
-
-// rrb : reverse rotate b - shift down all elements of stack b by 1. The flast element becomes the first one.
-
-// rrr : rra and rrb at the same time.
+int					rrb(t_hold *node)
+{
+	t_stack	*tmp;
+	t_stack	*lst;
+	
+	if (listsize(node->b) <= 1)
+		return (0);
+	tmp = endpop(&node->b);
+	lst = (node->b);
+	tmp->next = lst;
+	lst = tmp;
+	node->b = lst;
+	return (1);
+}

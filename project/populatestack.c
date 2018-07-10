@@ -23,16 +23,13 @@ int		createalist(char **str, t_hold *node)
 	ret = node->a;
 	while (str[size])
 		size++;
-	while (i < size - 2)
+	while (i < (size - (node->debug + node->colour + 1) ))
 	{
-		// printf("%d\n", size);
 		ret->next = (t_stack*)malloc(sizeof(t_stack));
 		ret = ret->next;
-		// ret->next = NULL;
 		ret->data = 0;
 		ret->loc = 0;
 		i++;
-		// write(1, "x", 1);
 	}
 	ret->next = NULL;
 	
@@ -46,11 +43,11 @@ int		doublecheck(t_hold *node)
 	t_stack *list;
 	
 	temp = node->a;
-	while(temp->next != NULL)
+	while(temp != NULL)
 	{
 		list = temp;
 		list = list->next;
-		while (list->next != NULL)
+		while (list != NULL)
 		{
 			if (list->data == temp->data)
 			{
@@ -84,7 +81,7 @@ int		populatestack(char **str, t_hold *node)
 			ret->data = atoi(str[i]);
 			ret = ret->next;
 			if (ret == NULL)
-				return (1);
+				return (doublecheck(node));
 		}
 		i++;
 	}

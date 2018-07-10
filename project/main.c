@@ -27,33 +27,43 @@ int		main(int arc, char **arv)
 		return (0);
 
 	// write(1, "x\n",2);
-	debugmode(node);
-	// sa(node);
-	// pb(node);
-	// pb(node);
+	// debugmode(node);
+	sa(node);
+
+	ss(node);
+	rr(node);
+	rrr(node);
+	// ss(node);
 	// sb(node);
 	// pb(node);
-	ra(node);
+	// ra(node);
 
-		
+	// ra(node);
+	// ra(node);
+	// ra(node);
+	// ra(node);
+	// ra(node);
+	// ra(node);
+	// ra(node);
+	// ra(node);
+	// debugmode(node);
+	// rra(node);
+	// rra(node);
+	// rra(node);
+	// rrb(node);
 
 	
 
 	// debugmode(node);
-	// 
-	pa(node);
 
-	pa(node);
+	// 
+
 	// debugmode(node);
 
 	int	count;
-	count = 0;
+	count = listsize(node->a);
 	debugmode(node);
-	while (node->a != NULL)
-	{
-		count++;
-		node->a = node->a->next;
-	}
+
 
 	printf("str_size:[%d]	list_size:[%d]	debug:[%d]	colour:[%d]\n",node->size, count, node->debug, node->colour);
 	return (1);

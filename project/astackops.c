@@ -18,9 +18,9 @@ int					sa(t_hold *node)
 	int		tmp;
 
 	tempa = node->a;
-	tempa = tempa->next;
 	if (tempa == NULL)
 		return (0);
+	tempa = tempa->next;
 	tmp = node->a->data;
 	node->a->data = tempa->data;
 	tempa->data = tmp;
@@ -36,7 +36,7 @@ int					pa(t_hold *node)
 		write(1, "AEXIT\n", 5);
 		return (0);
 	}
-	tempb = popstart(&node->b);
+	tempb = startpop(&node->b);
 	tempb->next = node->a;
 	node->a = tempb;
 	return (1);
@@ -44,31 +44,30 @@ int					pa(t_hold *node)
 
 int					ra(t_hold *node)
 {
-
 	t_stack *temp;
 	t_stack *tmplist;
-
-	temp = popstart(&node->a);
+	if (listsize(node->a) <= 1)
+		return (0);
+	temp = startpop(&node->a);
 	temp->next = NULL;
 	tmplist = node->a;
-	while (tmplist != NULL)
+	while (tmplist->next != NULL)
 		tmplist = tmplist->next;
 	tmplist->next = temp;
 	return (1);
 }
-// ss : sa and sb at the same time.
 
-
-
-// ra : rotate a - shift up all elements of stack a by 1. The first element becomes
-// the last one.
-
-// rb : rotate b - shift up all elements of stack b by 1. The first element becomes the last one.
-
-// rr : ra and rb at the same time.
-
-// rra : reverse rotate a - shift down all elements of stack a by 1. The flast element becomes the first one.
-
-// rrb : reverse rotate b - shift down all elements of stack b by 1. The flast element becomes the first one.
-
-// rrr : rra and rrb at the same time.
+int					rra(t_hold *node)
+{
+	t_stack	*tmp;
+	t_stack	*lst;
+	
+	if (listsize(node->a) <= 1)
+		return (0);
+	tmp = endpop(&node->a);
+	lst = (node->a);
+	tmp->next = lst;
+	lst = tmp;
+	node->a = lst;
+	return (1);
+}

@@ -39,17 +39,21 @@ t_hold				*malloctime(void);
 int					searchandmalloc(char **str, t_hold *node, int arc);
 int					populatestack(char **str, t_hold *node);
 void				debugmode(t_hold *node);
-t_stack				*popstart(t_stack **list);
+t_stack				*startpop(t_stack **list);
+t_stack				*endpop(t_stack **list);
+int					listsize(t_stack *lst);
 
 int					sa(t_hold *node);
 int					pa(t_hold *node);
 int					ra(t_hold *node);
-// int					rra(t_hold *node);
+int					rra(t_hold *node);
 
 int					sb(t_hold *node);
 int					pb(t_hold *node);
-// int					rb(t_hold *node);
-// int					rrb(t_hold *node);
+int					rb(t_hold *node);
+int					rrb(t_hold *node);
 
-
+int					ss(t_hold *node);
+int					rr(t_hold *node);
+int					rrr(t_hold *node);
 #endif
