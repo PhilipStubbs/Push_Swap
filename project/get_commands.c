@@ -77,7 +77,7 @@ int		get_commands(t_hold *node)
 		exit(1);
 	}
 	
-	while ((ret = get_next_line(1, &cmd)) != 0)
+	while ((ret = get_next_line(0, &cmd)) != 0)
 	{
 		// printf("CMD  = %s\n",cmd );
 
