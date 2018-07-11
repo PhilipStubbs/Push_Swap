@@ -61,6 +61,7 @@ t_hold				*malloctime(void);
 int					searchandmalloc(char **str, t_hold *node, int arc);
 int					populatestack(char **str, t_hold *node, int checker);
 void				debugmode(t_hold *node);
+void				colouroutput(t_hold *node, char *cmd);
 t_stack				*startpop(t_stack **list);
 t_stack				*endpop(t_stack **list);
 int					listsize(t_stack *lst);

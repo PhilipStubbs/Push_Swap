@@ -46,6 +46,8 @@ int		isvalid(char *s, t_hold *node)
 	{
 		while (ft_isspace(s[i]) == 1 && s[i] != '\0')
 			i++;
+		if (ft_strcmp(s+i,"2147483648") == 0 || ft_strcmp(s+i,"-2147483649") == 0)
+			return (0);
 		if ((!(s[i] >= '0' && s[i] <= '9') && s[i] != '\0'))
 		{
 			if (isflag(s + i, node) == 1)

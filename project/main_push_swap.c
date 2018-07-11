@@ -52,17 +52,17 @@ int		main(int arc, char **arv)
 	// rra(node);
 	// rrb(node);
 
+		RA;
+		PB;
+		PB;
+		PB;
+		PB;
+		PB;
+		PB;
+		SA;
+		SA;
+		SA;
 		RRA;
-		PB;
-		PB;
-		PB;
-		PB;
-		PB;
-		PB;
-		SA;
-		SA;
-		SA;
-		RRA;
 		PA;
 		PA;
 		PA;
@@ -86,23 +86,29 @@ int		main(int arc, char **arv)
 		SS;
 		SS;
 		SS;
+		PB;
+		PB;
 		SB;
 		SB;
 		SB;
 		SB;
 		SB;
+
 		SA;
 		SA;
 		SA;
 		PA;
 		PA;
+
+		PB;
 		PB;
 		RA;
 		RA;
 		RA;
 		RB;
+		RR;
 		RB;
-		RB;
+		RR;
 		
 
 	// ft_putendl_fd("gf", 1);

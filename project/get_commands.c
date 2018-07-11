@@ -65,6 +65,7 @@ int		commandcheck(char *cmd, t_hold *node)
 int		get_commands(t_hold *node)
 {
 	char	*cmd;
+	char	tmp[3];
 	int		ret;
 	int		*fd;
 
@@ -80,7 +81,8 @@ int		get_commands(t_hold *node)
 	while ((ret = get_next_line(0, &cmd)) != 0)
 	{
 		// printf("CMD  = %s\n",cmd );
-
+		if (ret != 0)
+			ft_strcpy(tmp, cmd);
 		if (commandcheck(cmd, node) == 0)
 		{
 			ERROR;
@@ -91,7 +93,10 @@ int		get_commands(t_hold *node)
 		OK;
 		exit(1);
 		}
+		debugmode(node);
+		colouroutput(node, tmp);
 	}
+	
 	KO;
 	return (1);
 }

@@ -20,8 +20,8 @@ int		sa(t_hold *node)
 	tempa = node->a;
 	if (tempa == NULL)
 		return (1);
-	// if (tempa->next == NULL)
-	// 	return (1);
+	if (tempa->next == NULL)
+		return (1);
 	tempa = tempa->next;
 	tmp = node->a->data;
 	node->a->data = tempa->data;
