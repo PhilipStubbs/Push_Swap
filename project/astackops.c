@@ -18,10 +18,10 @@ int		sa(t_hold *node)
 	int		tmp;
 
 	tempa = node->a;
-	if (tempa->next == NULL)
-		return (1);
 	if (tempa == NULL)
 		return (1);
+	// if (tempa->next == NULL)
+	// 	return (1);
 	tempa = tempa->next;
 	tmp = node->a->data;
 	node->a->data = tempa->data;
@@ -38,6 +38,8 @@ int		pa(t_hold *node)
 		return (1);
 	}
 	tempb = startpop(&node->b);
+	if (tempb == NULL)
+		return (1);
 	tempb->next = node->a;
 	node->a = tempb;
 	return (1);
@@ -67,6 +69,8 @@ int		rra(t_hold *node)
 	if (listsize(node->a) <= 1)
 		return (1);
 	tmp = endpop(&node->a);
+	if (tmp == NULL)
+		return (1);
 	lst = (node->a);
 	tmp->next = lst;
 	lst = tmp;

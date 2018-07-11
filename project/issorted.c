@@ -16,13 +16,11 @@ int		issorted(t_hold *node)
 {
 	t_stack	*tmpa;
 	// t_stack	*tmpb;
-	int		tmpint;
 	int 	bsize;
 	int		asize;
 
 	asize = listsize(node->a);
 	bsize = listsize(node->b);
-	tmpint = 0;
 	tmpa = node->a;
 	// tmpb = node->b;
 	// printf("%d\n",bsize );
@@ -30,13 +28,12 @@ int		issorted(t_hold *node)
 	{
 		while (tmpa->next != NULL)
 		{
-			tmpint = tmpa->data;
-			printf("%d \n",tmpa->data);
+			// printf("%d \n",tmpa->data);
 			if (tmpa->data > tmpa->next->data)
 			{	
 				// if (tmpa->next == NULL && bsize == 0)
 				// 	return (0);
-				ft_putendl_fd("isNOTsorted", 2);
+				// ft_putendl_fd("isNOTsorted", 2);
 				return (0);
 			}
 			tmpa = tmpa->next;

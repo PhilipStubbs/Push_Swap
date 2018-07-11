@@ -14,8 +14,8 @@
 
 int		output(t_stack *temp)
 {
-	ft_putchar(' ');
-	ft_putnbr(temp->data);
+	ft_putchar_fd(' ', 2);
+	ft_putnbr_fd(temp->data, 2);
 	return (1);
 }
 
@@ -33,17 +33,17 @@ void	loop(t_stack *tempa, t_stack *tempb, int isplaced, int size)
 		}
 		if (tempb != NULL)
 		{
-			ft_putchar('\t');
+			ft_putchar_fd('\t', 2);
 			isplaced = output(tempb);
 			tempb = tempb->next;
 		}
 		i++;
 		if (isplaced == 1)
-			ft_putchar('\n');
+			ft_putchar_fd('\n', 2);
 		isplaced = 0;
 	}
-	ft_putendl("___	___");
-	ft_putendl(" a	 b");
+	ft_putendl_fd("___	___", 2);
+	ft_putendl_fd(" a	 b", 2);
 }
 
 void	debugmode(t_hold *node)

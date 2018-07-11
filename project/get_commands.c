@@ -66,14 +66,20 @@ int		get_commands(t_hold *node)
 {
 	char	*cmd;
 	int		ret;
+	int		*fd;
 
+	// fd = 1;
+	fd = (int*)ft_memalloc(sizeof(int) * 100);
+	pipe(fd);
 	if (issorted(node) == 1)
 	{
 		OK;
 		exit(1);
 	}
-	while ((ret = get_next_line(0, &cmd)) != 0)
+	
+	while ((ret = get_next_line(1, &cmd)) != 0)
 	{
+		// printf("CMD  = %s\n",cmd );
 
 		if (commandcheck(cmd, node) == 0)
 		{
@@ -82,10 +88,10 @@ int		get_commands(t_hold *node)
 		}
 		if (issorted(node) == 1)
 		{
-			OK;
-			exit(1);
+		OK;
+		exit(1);
 		}
-
 	}
+	KO;
 	return (1);
 }

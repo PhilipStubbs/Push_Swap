@@ -22,11 +22,16 @@ int	main(int arc, char **arv)
 
 	if (searchandmalloc(arv, node, arc) == 0)
 		return (0);
-	if(populatestack(node->raw, node, 1) == 0)
+	if(populatestack(node->raw, node, 0) == 0)
 		return (0);
 	get_commands(node);
 
-	// issorted(node)
+	// if (issorted(node) == 1)
+	// {
+	// 	OK;
+	// 	exit(1);
+	// }
+	// KO;
 
 	exit(1);
 }

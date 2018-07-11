@@ -14,12 +14,9 @@
 
 t_stack		*startpop(t_stack **list)
 {
-	int		size;
 	t_stack *ret;
-
 	if (*list == NULL)
-		return (NULL);
-	size = listsize(*list);
+		return(NULL);
 	ret = (*list);
 	(*list) = (*list)->next;
 	return (ret);

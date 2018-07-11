@@ -52,6 +52,62 @@ int		main(int arc, char **arv)
 	// rra(node);
 	// rrb(node);
 
+		RRA;
+		PB;
+		PB;
+		PB;
+		PB;
+		PB;
+		PB;
+		SA;
+		SA;
+		SA;
+		RRA;
+		PA;
+		PA;
+		PA;
+		PA;
+		PA;
+		RRR;
+		RRR;
+		RRR;
+		RRR;
+		RRR;
+		RR;
+		SS;
+		SS;
+		SS;
+		SS;
+		RR;
+		RR;
+		RR;
+		RR;
+		RR;
+		SS;
+		SS;
+		SS;
+		SB;
+		SB;
+		SB;
+		SB;
+		SB;
+		SA;
+		SA;
+		SA;
+		PA;
+		PA;
+		PB;
+		RA;
+		RA;
+		RA;
+		RB;
+		RB;
+		RB;
+		
+
+	// ft_putendl_fd("gf", 1);
+	// ft_putendl_fd("sa", 1);
+	// write(1, "HELLO\n", 6);
 	
 
 	// debugmode(node);
@@ -60,12 +116,12 @@ int		main(int arc, char **arv)
 
 	// debugmode(node);
 
-	int	count;
-	count = listsize(node->a);
+
 	debugmode(node);
 
-
-	printf("str_size:[%d]	list_size:[%d]	debug:[%d]	colour:[%d]\n",node->size, count, node->debug, node->colour);
+	// int	count;
+	// count = listsize(node->a);
+	// printf("str_size:[%d]	list_size:[%d]	debug:[%d]	colour:[%d]\n",node->size, count, node->debug, node->colour);
 	return (1);
 
 }
