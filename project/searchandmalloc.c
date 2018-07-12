@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   searchandmalloc.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pstubbs <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: pstubbs <pstubbs@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/07 14:01:55 by pstubbs           #+#    #+#             */
-/*   Updated: 2018/07/07 14:01:56 by pstubbs          ###   ########.fr       */
+/*   Updated: 2018/07/12 06:15:47 by pstubbs          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,11 @@ int		isflag(char *s, t_hold *node)
 	if (s[i] == '-' && s[i + 1] == 'c')
 	{
 		node->colour = 1;
+		return (1);
+	}
+	if (s[i] == '-' && s[i + 1] == 's')
+	{
+		node->supcolour = 1;
 		return (1);
 	}
 	i++;

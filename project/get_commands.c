@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_commands.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pstubbs <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: pstubbs <pstubbs@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/10 13:06:39 by pstubbs           #+#    #+#             */
-/*   Updated: 2018/07/10 13:06:40 by pstubbs          ###   ########.fr       */
+/*   Updated: 2018/07/12 06:34:05 by pstubbs          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,24 +65,21 @@ int		commandcheck(char *cmd, t_hold *node)
 int		get_commands(t_hold *node)
 {
 	char	*cmd;
-	char	tmp[3];
+	char	tmp[5];
 	int		ret;
-	int		*fd;
 
-	// fd = 1;
-	fd = (int*)ft_memalloc(sizeof(int) * 100);
-	pipe(fd);
 	if (issorted(node) == 1)
 	{
 		OK;
 		exit(1);
 	}
-	
+	ft_bzero(tmp, 5);
 	while ((ret = get_next_line(0, &cmd)) != 0)
 	{
-		// printf("CMD  = %s\n",cmd );
+		
 		if (ret != 0)
 			ft_strcpy(tmp, cmd);
+		// printf("CMD  = %s\n",cmd );
 		if (commandcheck(cmd, node) == 0)
 		{
 			ERROR;
@@ -94,9 +91,10 @@ int		get_commands(t_hold *node)
 		exit(1);
 		}
 		debugmode(node);
-		colouroutput(node, tmp);
+		if (node->supcolour == 1)
+			colouroutput(node, tmp);
 	}
-	
+	colouroutput(node, tmp);
 	KO;
 	return (1);
 }

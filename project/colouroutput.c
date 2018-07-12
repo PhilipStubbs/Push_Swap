@@ -103,10 +103,72 @@ void		colouroutput(t_hold *node, char *cmd)
 	t_stack	*tempb;
 	int		isplaced;
 
-	if (node->colour != 1)
+	if (node->colour != 1 && node->supcolour != 1)
 		return ;
 	tempa = node->a;
 	tempb = node->b;
 	isplaced = 0;
 	loop(tempa, tempb, isplaced, node->size, cmd);
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pstubbs <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: pstubbs <pstubbs@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/07 14:01:50 by pstubbs           #+#    #+#             */
-/*   Updated: 2018/07/07 14:01:52 by pstubbs          ###   ########.fr       */
+/*   Updated: 2018/07/12 06:16:39 by pstubbs          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ typedef	struct		s_pushswap
 	int				size;
 	int				debug;
 	int				colour;
+	int				supcolour;
 }					t_hold;
 
 t_hold				*malloctime(void);
