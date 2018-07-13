@@ -6,7 +6,7 @@
 /*   By: pstubbs <pstubbs@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/07 14:01:55 by pstubbs           #+#    #+#             */
-/*   Updated: 2018/07/12 06:15:47 by pstubbs          ###   ########.fr       */
+/*   Updated: 2018/07/13 10:17:11 by pstubbs          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,8 @@ int		isvalid(char *s, t_hold *node)
 	{
 		while (ft_isspace(s[i]) == 1 && s[i] != '\0')
 			i++;
-		if (ft_strcmp(s+i,"2147483648") == 0 || ft_strcmp(s+i,"-2147483649") == 0)
+		if (ft_strcmp(s + i, "2147483648") == 0 ||
+			ft_strcmp(s + i, "-2147483649") == 0)
 			return (0);
 		if ((!(s[i] >= '0' && s[i] <= '9') && s[i] != '\0'))
 		{

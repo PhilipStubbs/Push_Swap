@@ -1,4 +1,5 @@
-NAME = push_swap
+
+NAME = push_swap.out
 
 SRC = ../src/astackops.c \
 	../src/bstackops.c \

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   poplink.c                                          :+:      :+:    :+:   */
+/*   startpop.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pstubbs <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: pstubbs <pstubbs@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/09 10:54:47 by pstubbs           #+#    #+#             */
-/*   Updated: 2018/07/09 10:54:48 by pstubbs          ###   ########.fr       */
+/*   Updated: 2018/07/13 10:15:49 by pstubbs          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,10 @@
 
 t_stack		*startpop(t_stack **list)
 {
-	t_stack *ret;
+	t_stack	*ret;
+
 	if (*list == NULL)
-		return(NULL);
+		return (NULL);
 	ret = (*list);
 	(*list) = (*list)->next;
 	return (ret);

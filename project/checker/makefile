@@ -1,5 +1,5 @@
 
-NAME = checker
+NAME = checker.out
 
 SRC = ../src/astackops.c \
 	../src/bstackops.c \
