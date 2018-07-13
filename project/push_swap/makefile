@@ -24,6 +24,8 @@ $(NAME) :
 	gcc -c -Wall -Werror -Wextra $(SRC) $(PUSH) -I../includes/
 	gcc -o $(NAME) $(OBJ) -I../includes/ -L. ../libft/libft.a
 	rm -f $(OBJ)
+	mv -f $(NAME) ../
+	@echo "push_swap.out done" 
 
 clean:
 	rm -f $(OBJ)

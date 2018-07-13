@@ -26,6 +26,8 @@ $(NAME) :
 	gcc -c -Wall -Werror -Wextra $(SRC) $(CHECK) -I../includes/
 	gcc -o $(NAME) $(OBJ) -I../includes/ -L. ../libft/libft.a
 	rm -f $(OBJ)
+	mv -f $(NAME) ../
+	@echo "checker.out done" 
 
 clean:
 	rm -f $(OBJ)
