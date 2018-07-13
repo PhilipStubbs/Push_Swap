@@ -16,7 +16,7 @@ int				*lastcmdb(char *cmd, t_stack *temp)
 	else if (ft_strcmp(cmd, "rb") == 0 || ft_strcmp(cmd, "rr") == 0)
 	{
 		if (listsize(temp) == 1)
-			ft_putstr(CYN);
+			ft_putstr(GRN);
 	}
 	else if (ft_strcmp(cmd, "rrb") == 0 || ft_strcmp(cmd, "rrr") == 0)
 		ret[0] = 0;
@@ -40,7 +40,7 @@ int				*lastcmda(char *cmd, t_stack *temp)
 	else if (ft_strcmp(cmd, "ra") == 0 || ft_strcmp(cmd, "rr") == 0)
 	{
 		if (listsize(temp) == 1)
-			ft_putstr(CYN);
+			ft_putstr(GRN);
 	}
 	else if (ft_strcmp(cmd, "rra") == 0 || ft_strcmp(cmd, "rrr") == 0)
 		ret[0] = 0;
@@ -60,7 +60,7 @@ static int		output(t_stack *temp, int count, char *cmd, int ab)
 	else
 		loc = lastcmdb(cmd, temp);
 	if ((count == loc[0] || count == loc[1]) && loc[0] != -1)
-		ft_putstr(CYN);
+		ft_putstr(GRN);
 	ft_putchar_fd(' ', 2);
 	ft_putnbr_fd(temp->data, 2);
 	ft_putstr(NRM);

@@ -6,7 +6,7 @@
 /*   By: pstubbs <pstubbs@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/10 13:06:39 by pstubbs           #+#    #+#             */
-/*   Updated: 2018/07/12 06:34:05 by pstubbs          ###   ########.fr       */
+/*   Updated: 2018/07/13 11:09:15 by pstubbs          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,11 +68,11 @@ int		get_commands(t_hold *node)
 	char	tmp[5];
 	int		ret;
 
-	if (issorted(node) == 1)
-	{
-		OK;
-		exit(1);
-	}
+	// if (issorted(node) == 1)
+	// {
+	// 	OK;
+	// 	exit(1);
+	// }
 	ft_bzero(tmp, 5);
 	while ((ret = get_next_line(0, &cmd)) != 0)
 	{
@@ -85,15 +85,16 @@ int		get_commands(t_hold *node)
 			ERROR;
 			exit(1);
 		}
-		if (issorted(node) == 1)
-		{
-		OK;
-		exit(1);
-		}
+
 		debugmode(node);
 		if (node->supcolour == 1)
 			colouroutput(node, tmp);
 	}
+	if (issorted(node) == 1)
+		{
+		OK;
+		exit(1);
+		}
 	colouroutput(node, tmp);
 	KO;
 	return (1);
