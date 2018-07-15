@@ -20,18 +20,13 @@ int		main(int arc, char **arv)
 
 	if (searchandmalloc(arv, node, arc) == 0)
 		return (0);
-	// write(1, "x\n",2);
-
 	if(populatestack(node->raw, node, 0) == 0)
 		return (0);
+	node->size = listsize(node->a);
+	normlize(node, node->size);
+	sortinhalfs(node);
+	// simplerotatesort(node);
 
-
-	SA;
-	PB;
-	PB;
-	PB;
-
-	debugmode(node);
 
 	return (1);
 

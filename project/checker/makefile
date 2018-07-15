@@ -12,9 +12,9 @@ SRC = ../src/astackops.c \
 	../src/populatestack.c \
 	../src/searchandmalloc.c \
 	../src/startpop.c \
+	../src/issorted.c \
 
 CHECK = get_commands.c \
-	issorted.c \
 	main_checker.c \
 
 OBJ = *.o
@@ -26,7 +26,7 @@ $(NAME) :
 	gcc -c -Wall -Werror -Wextra $(SRC) $(CHECK) -I../includes/
 	gcc -o $(NAME) $(OBJ) -I../includes/ -L. ../libft/libft.a
 	rm -f $(OBJ)
-	# mv -f $(NAME) ../
+	mv -f $(NAME) ../
 	@echo "checker.out done" 
 
 clean:

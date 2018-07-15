@@ -12,8 +12,13 @@ SRC = ../src/astackops.c \
 	../src/populatestack.c \
 	../src/searchandmalloc.c \
 	../src/startpop.c \
+	../src/issorted.c \
 
 PUSH = main_push_swap.c \
+	simplerotatesort.c \
+	lastlinkval.c \
+	sortinhalfs.c \
+	normlize.c \
 
 OBJ = *.o
 
@@ -24,7 +29,7 @@ $(NAME) :
 	gcc -c -Wall -Werror -Wextra $(SRC) $(PUSH) -I../includes/
 	gcc -o $(NAME) $(OBJ) -I../includes/ -L. ../libft/libft.a
 	rm -f $(OBJ)
-	# mv -f $(NAME) ../
+	mv -f $(NAME) ../
 	@echo "push_swap.out done" 
 
 clean:

@@ -19,5 +19,5 @@
 # define KO ft_putendl_fd("KO", 2);
 
 int		get_commands(t_hold *node);
-int		issorted(t_hold *node);
+
 #endif

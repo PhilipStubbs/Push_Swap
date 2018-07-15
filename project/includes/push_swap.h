@@ -42,7 +42,7 @@
 typedef	struct		s_stack
 {
 	int				data;
-	int				loc;
+	int				pos;
 	struct s_stack	*next;
 }					t_stack;
 
@@ -66,6 +66,7 @@ void				colouroutput(t_hold *node, char *cmd);
 t_stack				*startpop(t_stack **list);
 t_stack				*endpop(t_stack **list);
 int					listsize(t_stack *lst);
+int					issorted(t_hold *node);
 
 int					sa(t_hold *node);
 int					pa(t_hold *node);
@@ -80,4 +81,9 @@ int					rrb(t_hold *node);
 int					ss(t_hold *node);
 int					rr(t_hold *node);
 int					rrr(t_hold *node);
+
+int					simplerotatesort(t_hold *node);
+int					sortinhalfs(t_hold *node);
+int					lastlinkval(t_stack *lst);
+int					normlize(t_hold *node, int size);
 #endif

@@ -28,7 +28,7 @@ int		createalist(char **str, t_hold *node)
 		ret->next = (t_stack*)malloc(sizeof(t_stack));
 		ret = ret->next;
 		ret->data = 0;
-		ret->loc = 0;
+		ret->pos = 0;
 		i++;
 	}
 	ret->next = NULL;

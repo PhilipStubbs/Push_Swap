@@ -25,8 +25,8 @@ t_hold	*malloctime(void)
 	ret->a = (t_stack*)malloc(sizeof(t_stack));
 	ret->b = (t_stack*)malloc(sizeof(t_stack));
 	ret->a->data = 0;
-	ret->a->loc = 0;
+	ret->a->pos = 0;
 	ret->b->data = 0;
-	ret->b->loc = 0;
+	ret->b->pos = 0;
 	return (ret);
 }
