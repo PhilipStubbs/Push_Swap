@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   bstackops.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pstubbs <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: pstubbs <pstubbs@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/08 16:56:48 by pstubbs           #+#    #+#             */
-/*   Updated: 2018/07/08 16:56:49 by pstubbs          ###   ########.fr       */
+/*   Updated: 2018/07/16 08:52:53 by pstubbs          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,19 @@
 
 int		sb(t_hold *node)
 {
-	t_stack	*tempb;
-	int		tmp;
+	t_stack	*temp;
+	t_stack	*tempnext;
 
-	tempb = node->b;
-	if (tempb == NULL)
+	temp = node->b;
+	if (temp == NULL)
 		return (1);
-	if (tempb->next == NULL)
+	if (temp->next == NULL)
 		return (1);
-	tempb = tempb->next;
-	tmp = node->b->data;
-	node->b->data = tempb->data;
-	tempb->data = tmp;
+	temp = node->b;
+	tempnext = temp->next;
+	temp->next = tempnext->next;
+	tempnext->next = temp;
+	node->b = tempnext;
 	return (1);
 }
 

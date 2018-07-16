@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   astackops.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pstubbs <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: pstubbs <pstubbs@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/08 10:51:48 by pstubbs           #+#    #+#             */
-/*   Updated: 2018/07/08 10:51:49 by pstubbs          ###   ########.fr       */
+/*   Updated: 2018/07/16 11:25:35 by pstubbs          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,19 @@
 
 int		sa(t_hold *node)
 {
-	t_stack	*tempa;
-	int		tmp;
+	t_stack	*temp;
+	t_stack	*tempnext;
 
-	tempa = node->a;
-	if (tempa == NULL)
+	temp = node->a;
+	if (temp == NULL)
 		return (1);
-	if (tempa->next == NULL)
+	if (temp->next == NULL)
 		return (1);
-	tempa = tempa->next;
-	tmp = node->a->data;
-	node->a->data = tempa->data;
-	tempa->data = tmp;
+	temp = node->a;
+	tempnext = temp->next;
+	temp->next = tempnext->next;
+	tempnext->next = temp;
+	node->a = tempnext;
 	return (1);
 }
 

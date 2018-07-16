@@ -24,71 +24,79 @@ void	sorta(t_hold *node,t_stack *list, int mid, char *cmd)
 
 	a = list;
 	last = lastlinkval(a);
-	if (a->pos < mid)
+	if (a->pos <= mid)
 	{
 		ft_strcpy(cmd, "pb");
 		pb(node);
-		// PB;
+		PB;
 	}
-	a = list;
+	// a = list;
 	// if (a->next != NULL)
 	// {
-		if (a->next->pos < a->pos)
+
+	else if (a->next->data < a->data)
 		{
-			printf("%d : %d\n",a->next->data, a->data );
 			ft_strcpy(cmd, "sa");
 			sa(node);
-			// SA;
+			SA;
 		}
 	// }
-	a = list;
-	if (a->pos > last)
+	
+	else if (a->pos > last)
 	{
 		ft_strcpy(cmd, "rra");
 		rra(node);
-		// RRA;
+		RRA;
+	}
+	else if (last > a->data && islistsorted(a, 'a') != 1)
+	{
+		ft_strcpy(cmd, "ra");
+		ra(node);
+		RA;
 	}
 }
 
-void	sortb(t_hold *node,t_stack *b,t_stack *a, char *cmd)
+void	sortb(t_hold *node,t_stack *lstb,t_stack *lsta, char *cmd)
 {	
 	int last;
 	int size;
+	t_stack *a;
+	t_stack *b;
 
+	a = lsta;
+	b = lstb;
 	last = lastlinkval(b);
 	size = listsize(b);
-	printf("%d\n", size);
-	if (b->pos < a->pos && size > 1)
+	if (islistsorted(a, 'a') == 1 && islistsorted(b, 'b') == 1)
 	{	
-		ft_strcpy(cmd, "pa");
-		pa(node);
-		// PA;
+		while (size--)
+		{
+			ft_strcpy(cmd, "pa");
+			pa(node);
+			PA;
+		}
 
 	}
-	if (b->next != NULL && size > 1)
+	else if (b->next != NULL && size > 1)
 	{
-		if (b->next->pos < b->pos)
+		if (b->next->pos > b->pos)
 		{
 			ft_strcpy(cmd, "sb");
 			sb(node);
-			// SB;
+			SB;
+			colouroutput(node, cmd);
 		}
 	}
-	if (b->pos > last && size > 1)
+	else if (b->pos > last && size > 1)
 	{
 		ft_strcpy(cmd, "rrb");
 		rrb(node);
-		// RRB;
+		RRB;
 	}
-	// else
-	// {
-	// 	ft_strcpy(cmd, "ra");
-	// 	ra(node);
-	// 	// RA;
-	// }
+
 }
 
-
+// "0 1 2 4 3"
 int		sortinhalfs(t_hold *node)
 {
 	char	*cmd;
@@ -99,25 +107,27 @@ int		sortinhalfs(t_hold *node)
 	a = node->a;
 
 	mid = node->size / 2;
-	printf("%d\n",mid );
+	// printf("%d\n",mid );
 
 	cmd = (char*)ft_memalloc(sizeof(char) * 4);	
 	int i = 0;
-	while (i < 5)
+	while (1)
 	{
 		a = node->a;
 		b = node->b;
 		bzero(cmd, 4);
 
+		a = node->a;
 		if (a != NULL)
 			sorta(node, a, mid, cmd);
+		a = node->a;
 		if (b != NULL)
 			sortb(node, b, a, cmd);
-		
-		printf("[%s]\n",cmd );
+		b = node->b;
+		// printf("[%s]\n",cmd );
 		colouroutput(node, cmd);
 		debugmode(node);
-		if (issorted(node) == 1) //&& listsize(b) == 0)
+		if (issorted(node) == 1 && listsize(b) == 0)
 			break;
 		i++;
 

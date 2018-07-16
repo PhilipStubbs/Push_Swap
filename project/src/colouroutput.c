@@ -95,6 +95,7 @@ static void		loop(t_stack *tempa, t_stack *tempb, int isplaced, int size, char *
 	}
 	ft_putendl_fd("___	___", 2);
 	ft_putendl_fd(" a	 b", 2);
+	
 }
 
 void		colouroutput(t_hold *node, char *cmd)
@@ -109,4 +110,5 @@ void		colouroutput(t_hold *node, char *cmd)
 	tempb = node->b;
 	isplaced = 0;
 	loop(tempa, tempb, isplaced, node->size, cmd);
+	printf("_%d_	_%d_\n",listsize(tempa) ,listsize(tempb));
 }

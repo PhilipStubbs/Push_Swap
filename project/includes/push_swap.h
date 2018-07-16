@@ -6,7 +6,7 @@
 /*   By: pstubbs <pstubbs@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/07 14:01:50 by pstubbs           #+#    #+#             */
-/*   Updated: 2018/07/12 06:16:39 by pstubbs          ###   ########.fr       */
+/*   Updated: 2018/07/16 10:49:56 by pstubbs          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,7 @@ t_stack				*startpop(t_stack **list);
 t_stack				*endpop(t_stack **list);
 int					listsize(t_stack *lst);
 int					issorted(t_hold *node);
+int					islistsorted(t_stack *list, char ab);
 
 int					sa(t_hold *node);
 int					pa(t_hold *node);
