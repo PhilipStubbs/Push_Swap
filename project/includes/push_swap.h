@@ -87,4 +87,7 @@ int					simplerotatesort(t_hold *node);
 int					sortinhalfs(t_hold *node);
 int					lastlinkval(t_stack *lst);
 int					normlize(t_hold *node, int size);
+
+
+void				printstack(t_stack *list);
 #endif

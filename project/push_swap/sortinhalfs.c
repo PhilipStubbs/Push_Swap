@@ -1,5 +1,19 @@
 #include "push_swap.h"
 
+
+void	printstack(t_stack *list)
+{
+	t_stack *tmp;
+
+	tmp = list;
+
+	while (tmp != NULL)
+	{
+		printf("(%d:[%d])\n",tmp->pos, tmp->data);
+		tmp = tmp->next;
+	}
+}
+
 int		middlevalue(t_stack *list, int size)
 {
 	t_stack *tmp;
@@ -24,7 +38,7 @@ void	sorta(t_hold *node,t_stack *list, int mid, char *cmd)
 
 	a = list;
 	last = lastlinkval(a);
-	if (a->pos <= mid)
+	if (a->pos <= mid && !(a->next->data < a->data))
 	{
 		ft_strcpy(cmd, "pb");
 		pb(node);
@@ -42,7 +56,7 @@ void	sorta(t_hold *node,t_stack *list, int mid, char *cmd)
 		}
 	// }
 	
-	else if (a->pos > last)
+	else if (a->data > last)
 	{
 		ft_strcpy(cmd, "rra");
 		rra(node);
@@ -77,22 +91,30 @@ void	sortb(t_hold *node,t_stack *lstb,t_stack *lsta, char *cmd)
 		}
 
 	}
-	else if (b->next != NULL && size > 1)
+	b = lstb;
+	if(b->next != NULL)
 	{
-		if (b->next->pos > b->pos)
+	 if (b->next->data < b->data)
 		{
 			ft_strcpy(cmd, "sb");
 			sb(node);
 			SB;
-			colouroutput(node, cmd);
 		}
 	}
-	else if (b->pos > last && size > 1)
+	
+	else if (b->data > last)
 	{
 		ft_strcpy(cmd, "rrb");
 		rrb(node);
 		RRB;
 	}
+	else if (last > b->data && islistsorted(b, 'b') != 1)
+	{
+		ft_strcpy(cmd, "rb");
+		rb(node);
+		RB;
+	}
+
 
 }
 
@@ -105,30 +127,35 @@ int		sortinhalfs(t_hold *node)
 	t_stack *b;
 	int mid;
 	a = node->a;
-
+// ARG="1 3 5 2 0 4"; ./push_swap.out $ARG
 	mid = node->size / 2;
 	// printf("%d\n",mid );
-
+	printstack(node->a);
 	cmd = (char*)ft_memalloc(sizeof(char) * 4);	
 	int i = 0;
-	while (1)
+	while (i < 15 )
 	{
 		a = node->a;
 		b = node->b;
 		bzero(cmd, 4);
+		if (issorted(node) == 1 && listsize(b) == 0)
+			break;
 
-		a = node->a;
+
 		if (a != NULL)
 			sorta(node, a, mid, cmd);
 		a = node->a;
+
+
 		if (b != NULL)
 			sortb(node, b, a, cmd);
 		b = node->b;
+
+
 		// printf("[%s]\n",cmd );
 		colouroutput(node, cmd);
 		debugmode(node);
-		if (issorted(node) == 1 && listsize(b) == 0)
-			break;
+
 		i++;
 
 	}
