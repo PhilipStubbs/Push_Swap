@@ -97,38 +97,6 @@ void	mergesortb(t_hold *node, char *cmd, int *nrange)
 		colouroutput(node, cmd);
 		bzero(cmd, 4);
 	}
-	// if (listsize(node->a) <= 3)
-	// {
-	// 	while (1)
-	// 	{
-	// 		a = node->a;
-	// 		last = lastlinkval(a);
-	// 		a = node->a;
-	// 		if (a->data < a->next->data)
-	// 		{
-	// 			ft_strcpy(cmd, "sa");
-	// 			sa(node);
-	// 			SA;
-	// 		}
-	// 		else if (a->data > last)
-	// 		{
-	// 			ft_strcpy(cmd, "ra");
-	// 			ra(node);
-	// 			RA;
-	// 		}
-	// 		else if (a->data > a->next->data && a->data < last)
-	// 		{
-	// 			ft_strcpy(cmd, "rra");
-	// 			rra(node);
-	// 			RRA;
-	// 		}
-	// 		a = node->a;
-	// 		if (islistsorted(a, 'a') == 1)
-	// 			break;
-	// 		colouroutput(node, cmd);
-	// 		bzero(cmd, 4);
-	// 	}
-	// }
 	i = 3;
 	while (i > 0)
 	{
@@ -142,7 +110,7 @@ void	mergesortb(t_hold *node, char *cmd, int *nrange)
 
 void	mergesorta(t_hold *node, char *cmd, int *crange)
 {	
-	// int last;
+	int last;
 	int		*range;
 	// int		lastsorted;
 	t_stack *a;
@@ -177,6 +145,40 @@ void	mergesorta(t_hold *node, char *cmd, int *crange)
 		sb(node);
 		SB;
 	}
+	if (listsize(a) <= 3)
+	{
+		while (1)
+		{
+			if (islistsorted(a, 'a') == 1)
+				break;
+			a = node->a;
+			last = lastlinkval(a);
+			a = node->a;
+			if (a->data > a->next->data)
+			{
+				ft_strcpy(cmd, "sa");
+				sa(node);
+				SA;
+			}
+			else if (a->data < last)
+			{
+				ft_strcpy(cmd, "ra");
+				ra(node);
+				RA;
+			}
+			else if (a->data < a->next->data && a->data > last)
+			{
+				ft_strcpy(cmd, "rra");
+				rra(node);
+				RRA;
+			}
+			a = node->a;
+
+			colouroutput(node, cmd);
+			bzero(cmd, 4);
+		}
+	}
+
 }
 
 
@@ -198,7 +200,7 @@ int		mergesort(t_hold *node)
 	// printstack(a);
 	i = 0;
 	nrange = 1;
-	while (i < 10)
+	while (1)
 	{
 		if (nrange == 1)
 		{
