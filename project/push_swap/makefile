@@ -19,6 +19,7 @@ PUSH = main_push_swap.c \
 	lastlinkval.c \
 	sortinhalfs.c \
 	normlize.c \
+	mergesort.c \
 
 OBJ = *.o
 

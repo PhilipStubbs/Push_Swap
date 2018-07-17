@@ -87,7 +87,9 @@ int					simplerotatesort(t_hold *node);
 int					sortinhalfs(t_hold *node);
 int					lastlinkval(t_stack *lst);
 int					normlize(t_hold *node, int size);
+int					mergesort(t_hold *node);
 
 
 void				printstack(t_stack *list);
 #endif
+// ARG=`ruby -e "puts (0..16).to_a.shuffle.join(' ')"`;

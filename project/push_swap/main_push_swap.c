@@ -24,8 +24,9 @@ int		main(int arc, char **arv)
 		return (0);
 	node->size = listsize(node->a);
 	normlize(node, node->size);
-	sortinhalfs(node);
+	// sortinhalfs(node);
 	// simplerotatesort(node);
+	mergesort(node);
 
 
 	return (1);
