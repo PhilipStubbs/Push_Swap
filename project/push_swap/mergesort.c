@@ -17,34 +17,41 @@ int		*findclosest(t_hold *node ,t_stack *list, int *crange)
 	int		*ret;
 	int		count;
 	int		steps;
+	int		size;
 	t_stack	*a;
 
 	ret = (int*)ft_memalloc(sizeof(int) * 3);
-	ft_memset(ret, -1, 3);
+	ft_memset(ret, 0, 3);
 	a = list;
+	size = listsize(a);
 	count = 0;
 	steps = 0;
+	// printf("listsize%d\n",listsize(a) );
+	a = list;
 	while (a != NULL)
 	{
-		if (a->pos >= crange[0] && a->pos <= crange[1])
+		if (a->pos > crange[0] && a->pos <= crange[1])
 		{
+			// printf(" START%d\n",crange[0] );
 			steps = count;
-			if (count < node->size / 2 && steps < node->size / 2)
+			// printf("HERE%d, %d\n", steps , size / 2);
+			if ( steps < size / 2)
 			{
 				ret[0] = 1;
 				ret[1] = a->data;
 			}
-			if (count == node->size / 2 )
+			// if (count == node->size / 2 )
+			// {
+			// 	ret[0] = -1;
+			// 	ret[1] = a->data;
+			// }
+			// printf("HERE2 %d, %d\n", (size - steps) , size / 2);
+			if (count >= node->size / 2) //|| (size - steps) < (steps < size / 2))
 			{
 				ret[0] = -1;
 				ret[1] = a->data;
 			}
-			if (count > node->size / 2 && (node->size - steps) < (steps < node->size / 2))
-			{
-				ret[0] = -1;
-				ret[1] = a->data;
-			}
-			if (count == 0 || count == 1 || count == node->size || count == node->size -1)
+			if (count == 0 || count == size )
 				return (ret);
 		}
 		count++;
@@ -52,8 +59,88 @@ int		*findclosest(t_hold *node ,t_stack *list, int *crange)
 	}
 	return (ret);
 }
+void	mergesortb(t_hold *node, char *cmd, int *nrange)
+{	
 
-void	mergesorta(t_hold *node, char *cmd, int *crange, int *nrange)
+	t_stack *b;
+	// t_stack *a;
+	int last;
+	int	i;
+
+	b = node->b;
+	while (1)
+	{
+		b = node->b;
+		last = lastlinkval(b);
+		b = node->b;
+		if (b->data < b->next->data)
+		{
+			ft_strcpy(cmd, "sb");
+			sb(node);
+			SB;
+		}
+		else if (b->data > last)
+		{
+			ft_strcpy(cmd, "rb");
+			rb(node);
+			RB;
+		}
+		else if (b->data > b->next->data && b->data < last)
+		{
+			ft_strcpy(cmd, "rrb");
+			rrb(node);
+			RRB;
+		}
+		b = node->b;
+		if (islistsorted(b, 'b') == 1)
+			break;
+		colouroutput(node, cmd);
+		bzero(cmd, 4);
+	}
+	// if (listsize(node->a) <= 3)
+	// {
+	// 	while (1)
+	// 	{
+	// 		a = node->a;
+	// 		last = lastlinkval(a);
+	// 		a = node->a;
+	// 		if (a->data < a->next->data)
+	// 		{
+	// 			ft_strcpy(cmd, "sa");
+	// 			sa(node);
+	// 			SA;
+	// 		}
+	// 		else if (a->data > last)
+	// 		{
+	// 			ft_strcpy(cmd, "ra");
+	// 			ra(node);
+	// 			RA;
+	// 		}
+	// 		else if (a->data > a->next->data && a->data < last)
+	// 		{
+	// 			ft_strcpy(cmd, "rra");
+	// 			rra(node);
+	// 			RRA;
+	// 		}
+	// 		a = node->a;
+	// 		if (islistsorted(a, 'a') == 1)
+	// 			break;
+	// 		colouroutput(node, cmd);
+	// 		bzero(cmd, 4);
+	// 	}
+	// }
+	i = 3;
+	while (i > 0)
+	{
+		ft_strcpy(cmd, "pa");
+		pa(node);
+		PA;
+		i--;
+	}
+	*(nrange) = 1;
+}
+
+void	mergesorta(t_hold *node, char *cmd, int *crange)
 {	
 	// int last;
 	int		*range;
@@ -62,29 +149,41 @@ void	mergesorta(t_hold *node, char *cmd, int *crange, int *nrange)
 
 	a = node->a;
 	range = findclosest(node, a ,crange);
-	printf("link = %d : %d\n", range[0], range[1]);
-	(void)cmd;
-
-	*(nrange) = 1;
-	
+	// printf("link = %d : %d\n", range[0], range[1]);
+	// *(nrange) = 1;
+	a = node->a;
 	// last = lastlinkval(a);
-	// if (a->pos <= mid && !(a->next->data < a->data))
-	// {
-	// 	ft_strcpy(cmd, "pb");
-	// 	pb(node);
-	// 	PB;
-	// }
-
+	if (range[0] == -1 && listsize(node->b) < 3)
+	{
+		ft_strcpy(cmd, "rra");
+		rra(node);
+		RRA;
+	}
+	else if (a->data == range[1] && listsize(node->b) < 3)
+	{
+		ft_strcpy(cmd, "pb");
+		pb(node);
+		PB;
+	}
+	else if (range[0] == 1 && listsize(node->b) < 3)
+	{
+		ft_strcpy(cmd, "ra");
+		ra(node);
+		RA;
+	}
+	else if (node->b->data < node->b->next->data)
+	{
+		ft_strcpy(cmd, "sb");
+		sb(node);
+		SB;
+	}
 }
 
-// void	sortb(t_hold *node,t_stack *lstb,t_stack *lsta, char *cmd)
-// {	
-// }
 
 int		mergesort(t_hold *node)
 {
 	char	*cmd;
-	t_stack	*a;
+	// t_stack	*a;
 	t_stack	*b;
 	int		totalrange;
 	int		leftover;
@@ -92,24 +191,21 @@ int		mergesort(t_hold *node)
 	int		crange[2];
 	int 	nrange;
 
-	a = node->a;
+	// a = node->a;
 	totalrange = node->size / 3;
 	leftover = node->size % 3;
 	cmd = (char*)ft_memalloc(sizeof(char) * 4);	
-	printstack(a);
-	// printf("%d : ",crange[0]);
-	// totalrange--;
-	// printf("%d\n",crange[1]);
+	// printstack(a);
 	i = 0;
-	// printf("%d\n",totalrange);
 	nrange = 1;
-	while (i < 10 )
+	while (i < 10)
 	{
 		if (nrange == 1)
 		{
 			findrange(crange, totalrange, leftover, &nrange);
 			printf("%d : ",crange[0]);
 			printf("%d",crange[1]);
+			totalrange--;
 		}
 
 		// a = node->a;
@@ -119,20 +215,26 @@ int		mergesort(t_hold *node)
 			break;
 
 		// if (a != NULL)
-		mergesorta(node, cmd, crange ,&nrange);
+		mergesorta(node, cmd, crange);
+		if (listsize(b) == 3)
+			mergesortb(node, cmd,&nrange);
 
 // 
 		// a = node->a;
 		// printf("[%s]\n",cmd );
 		colouroutput(node, cmd);
 		debugmode(node);
-		totalrange--;
+		
 		i++;
 
 	}
 	return (1);
 }
 /*
+ARG="0  13 4 7 9 11 8 6 1 10 2 14 5 3 16 12 15 -s";
+
+rra goes down. things more than halfway use rra
+
 split the array by a range. put it int o b;
 starting with the biggest.
 split int o 3. if stack is 6 or less take the lower numbers
