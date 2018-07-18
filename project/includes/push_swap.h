@@ -88,6 +88,7 @@ int					sortinhalfs(t_hold *node);
 int					lastlinkval(t_stack *lst);
 int					normlize(t_hold *node, int size);
 int					stackmergesort(t_hold *node);
+int					newsort(t_hold *node);
 
 
 void				printstack(t_stack *list);

@@ -26,7 +26,8 @@ int		main(int arc, char **arv)
 	normlize(node, node->size);
 	// sortinhalfs(node);
 	// simplerotatesort(node);
-	stackmergesort(node);
+	// stackmergesort(node);
+	newsort(node);
 
 
 	return (1);

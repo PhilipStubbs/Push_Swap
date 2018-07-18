@@ -13,19 +13,19 @@ void 	findrange(int *crange, int totalrange, int leftover, int *nrange)
 }
 
 
-int		maxval(t_stack *tmp)
-{
-	int hi;
+// int		maxval(t_stack *tmp)
+// {
+// 	int hi;
 
-	hi = -2147483648;
-	while(tmp != NULL)
-	{
-		if (tmp->data > hi)
-			hi = tmp->data;
-		tmp = tmp->next;
-	}
-	return (hi);
-}
+// 	hi = -2147483648;
+// 	while(tmp != NULL)
+// 	{
+// 		if (tmp->data > hi)
+// 			hi = tmp->data;
+// 		tmp = tmp->next;
+// 	}
+// 	return (hi);
+// }
 
 int		*findclosest(t_hold *node ,t_stack *list, int *crange)
 {
@@ -169,10 +169,10 @@ void	sortalessfive(t_hold *node, char *cmd)
 	int size;
 	// int max;
 	t_stack *a;
-	t_stack *b;
+	// t_stack *b;
 
 	a = node->a;
-	b = node->b;
+	// b = node->b;
 	size = listsize(a);
 	if (size <= 5)
 	{

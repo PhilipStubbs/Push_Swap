@@ -20,6 +20,7 @@ PUSH = main_push_swap.c \
 	sortinhalfs.c \
 	normlize.c \
 	stackmergesort.c \
+	newsort.c \
 
 OBJ = *.o
 
