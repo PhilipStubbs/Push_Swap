@@ -12,6 +12,21 @@ void 	findrange(int *crange, int totalrange, int leftover, int *nrange)
 
 }
 
+
+int		maxval(t_stack *tmp)
+{
+	int hi;
+
+	hi = -2147483648;
+	while(tmp != NULL)
+	{
+		if (tmp->data > hi)
+			hi = tmp->data;
+		tmp = tmp->next;
+	}
+	return (hi);
+}
+
 int		*findclosest(t_hold *node ,t_stack *list, int *crange)
 {
 	int		*ret;
@@ -110,7 +125,7 @@ void	mergesortb(t_hold *node, char *cmd, int *nrange)
 
 void	mergesorta(t_hold *node, char *cmd, int *crange)
 {	
-	int last;
+	// int last;
 	int		*range;
 	// int		lastsorted;
 	t_stack *a;
@@ -145,8 +160,29 @@ void	mergesorta(t_hold *node, char *cmd, int *crange)
 		sb(node);
 		SB;
 	}
-	if (listsize(a) <= 3)
+	
+}
+
+void	sortalessfive(t_hold *node, char *cmd)
+{
+	int last;
+	int size;
+	// int max;
+	t_stack *a;
+	t_stack *b;
+
+	a = node->a;
+	b = node->b;
+	size = listsize(a);
+	if (size <= 5)
 	{
+		if (size > 3)
+		{
+		ft_strcpy(cmd, "pb");
+		pb(node);
+		PB;
+		}
+		a = node->a;
 		while (1)
 		{
 			if (islistsorted(a, 'a') == 1)
@@ -154,35 +190,40 @@ void	mergesorta(t_hold *node, char *cmd, int *crange)
 			a = node->a;
 			last = lastlinkval(a);
 			a = node->a;
-			if (a->data > a->next->data)
+			if (a->data < a->next->data)
+			{
+				ft_strcpy(cmd, "ra");
+				rra(node);
+				RRA;
+			}
+			else if (a->data > a->next->data)
 			{
 				ft_strcpy(cmd, "sa");
 				sa(node);
 				SA;
 			}
-			else if (a->data < last)
+			else if (a->data < last && a->data > a->next->data )
 			{
 				ft_strcpy(cmd, "ra");
 				ra(node);
 				RA;
 			}
-			else if (a->data < a->next->data && a->data > last)
-			{
-				ft_strcpy(cmd, "rra");
-				rra(node);
-				RRA;
-			}
+			// else if (b != NULL)
+			// {
+
+			// }
+
 			a = node->a;
 
 			colouroutput(node, cmd);
 			bzero(cmd, 4);
 		}
-	}
 
+	}
 }
 
 
-int		mergesort(t_hold *node)
+int		stackmergesort(t_hold *node)
 {
 	char	*cmd;
 	// t_stack	*a;
@@ -200,24 +241,28 @@ int		mergesort(t_hold *node)
 	// printstack(a);
 	i = 0;
 	nrange = 1;
-	while (1)
+	while (i < 10)
 	{
+		// a = node->a;
 		if (nrange == 1)
 		{
 			findrange(crange, totalrange, leftover, &nrange);
-			printf("%d : ",crange[0]);
-			printf("%d",crange[1]);
+			// printf("%d : ",crange[0]);
+			// printf("%d",crange[1]);
 			totalrange--;
 		}
 
 		// a = node->a;
 		b = node->b;
 		bzero(cmd, 4);
+
+			sortalessfive(node, cmd);
+
 		if (issorted(node) == 1 && listsize(b) == 0)
 			break;
 
 		// if (a != NULL)
-		mergesorta(node, cmd, crange);
+		// mergesorta(node, cmd, crange);
 		if (listsize(b) == 3)
 			mergesortb(node, cmd,&nrange);
 
@@ -232,7 +277,13 @@ int		mergesort(t_hold *node)
 	}
 	return (1);
 }
+
+
+
 /*
+
+
+ARG=`ruby -e "puts (0..99).to_a.shuffle.join(' ')"`
 ARG="0  13 4 7 9 11 8 6 1 10 2 14 5 3 16 12 15 -s";
 
 rra goes down. things more than halfway use rra
@@ -255,4 +306,55 @@ add back int o a when sorted.
 sort in ranges.
 
 
+
+
+
+
+
+stack a = 500
+devide stack by 5. 
+have 5 chunks.
+100 ints per chunk
+
+do i take the top 500? 
+
+5 : put 2 into b; pb pb sa pa pa,
+
+put tthe first chunk in b.
+take out the biggest first until its empty.
+new chunk = chunk - (a chunk / 5); eg 100 - (100 / 5) = 80;
+
+throw 80 into b.
+pull the biggest out first.
+
+
+repeat;
+
+have a min value of 4.
 */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

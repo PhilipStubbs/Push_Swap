@@ -6,7 +6,7 @@
 /*   By: pstubbs <pstubbs@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/07 14:01:50 by pstubbs           #+#    #+#             */
-/*   Updated: 2018/07/16 10:49:56 by pstubbs          ###   ########.fr       */
+/*   Updated: 2018/07/18 10:23:08 by pstubbs          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ int					simplerotatesort(t_hold *node);
 int					sortinhalfs(t_hold *node);
 int					lastlinkval(t_stack *lst);
 int					normlize(t_hold *node, int size);
-int					mergesort(t_hold *node);
+int					stackmergesort(t_hold *node);
 
 
 void				printstack(t_stack *list);

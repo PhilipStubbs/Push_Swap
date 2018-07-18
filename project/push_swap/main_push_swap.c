@@ -6,7 +6,7 @@
 /*   By: pstubbs <pstubbs@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/07 14:01:33 by pstubbs           #+#    #+#             */
-/*   Updated: 2018/07/13 11:05:22 by pstubbs          ###   ########.fr       */
+/*   Updated: 2018/07/18 10:23:36 by pstubbs          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int		main(int arc, char **arv)
 	normlize(node, node->size);
 	// sortinhalfs(node);
 	// simplerotatesort(node);
-	mergesort(node);
+	stackmergesort(node);
 
 
 	return (1);
