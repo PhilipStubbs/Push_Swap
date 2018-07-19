@@ -45,9 +45,11 @@ int		closestsmaxval(t_stack *tmp, int totalrange)
 	}
 	a = tmp;
 	low = hi - totalrange;
+	if (low < 0)
+		low = 0;
 	while(a != NULL)
 	{
-		if ((a->pos >= low && a->pos <= hi))
+		if ((a->pos > low && a->pos <= hi))
 		{
 			return(a->data);
 		}
@@ -70,8 +72,7 @@ void	movea(t_hold *node,int totalrange, int size, char *cmd)
 	maxpos = maxposition(node, closestmaxint, totalrange);
 	while (count && tmp != NULL)
 	{
-		closestmaxint = closestsmaxval(tmp, totalrange);
-		maxpos = maxposition(node ,closestmaxint, totalrange);
+
 		
 		// printf("%d\n",closestmaxint);
 		// printf("%d %d\n",maxpos, size/2 );
@@ -82,10 +83,8 @@ void	movea(t_hold *node,int totalrange, int size, char *cmd)
 			PB;
 			count--;
 			tmp = node->a;
-
-
-			
-
+			closestmaxint = closestsmaxval(tmp, totalrange);
+			maxpos = maxposition(node ,closestmaxint, totalrange);
 		}
 
 		else if (maxpos >= size / 2)
@@ -125,7 +124,7 @@ int		newsort(t_hold *node)
 	// printstack(a);
 	i = 0;
 	newrange = 1;
-	// totalrange = 0;
+	totalrange = 0;
 	while (i < 10)
 	{
 		a = node->a;
