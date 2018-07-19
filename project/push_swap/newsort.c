@@ -151,7 +151,10 @@ int		newsort(t_hold *node)
 	cmd = (char*)ft_memalloc(sizeof(char) * 4);
 	totalrange = 0;
 	if (node->size <= 5)
+	{
 		dumbsort(node ,cmd);
+		return (1);
+	}
 	while (1)
 	{
 		a = node->a;

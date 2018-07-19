@@ -86,6 +86,7 @@ int					rrr(t_hold *node, char *cmd, int set);
 int					lastlinkval(t_stack *lst);
 int					normlize(t_hold *node, int size);
 int					newsort(t_hold *node);
+int					maxposition(t_stack *lst, int max, int totalrange);
 void				dumbsort(t_hold *node, char *cmd);
 
 
