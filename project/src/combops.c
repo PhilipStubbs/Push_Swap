@@ -12,23 +12,23 @@
 
 #include "push_swap.h"
 
-int		ss(t_hold *node)
+int		ss(t_hold *node, char *cmd, int set)
 {
-	sa(node);
-	sb(node);
+	sa(node, cmd, set);
+	sb(node, cmd, set);
 	return (1);
 }
 
-int		rr(t_hold *node)
+int		rr(t_hold *node, char *cmd, int set)
 {
-	ra(node);
-	rb(node);
+	ra(node, cmd, set);
+	rb(node, cmd, set);
 	return (1);
 }
 
-int		rrr(t_hold *node)
+int		rrr(t_hold *node, char *cmd, int set)
 {
-	rra(node);
-	rrb(node);
+	rra(node, cmd, set);
+	rrb(node, cmd, set);
 	return (1);
 }

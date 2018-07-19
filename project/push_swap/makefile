@@ -15,12 +15,10 @@ SRC = ../src/astackops.c \
 	../src/issorted.c \
 
 PUSH = main_push_swap.c \
-	simplerotatesort.c \
 	lastlinkval.c \
-	sortinhalfs.c \
 	normlize.c \
-	stackmergesort.c \
 	newsort.c \
+	dumbsort.c \
 
 OBJ = *.o
 

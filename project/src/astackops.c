@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-int		sa(t_hold *node)
+int		sa(t_hold *node, char *cmd, int set)
 {
 	t_stack	*temp;
 	t_stack	*tempnext;
@@ -27,10 +27,16 @@ int		sa(t_hold *node)
 	temp->next = tempnext->next;
 	tempnext->next = temp;
 	node->a = tempnext;
+	if (set == 1)
+	{
+		bzero(cmd, 4);
+		ft_strcpy(cmd, "sa");
+		SA;
+	}
 	return (1);
 }
 
-int		pa(t_hold *node)
+int		pa(t_hold *node, char *cmd, int set)
 {
 	t_stack	*tempb;
 
@@ -43,10 +49,16 @@ int		pa(t_hold *node)
 		return (1);
 	tempb->next = node->a;
 	node->a = tempb;
+	if (set == 1)
+	{
+		bzero(cmd, 4);
+		ft_strcpy(cmd, "pa");
+		PA;
+	}
 	return (1);
 }
 
-int		ra(t_hold *node)
+int		ra(t_hold *node, char *cmd, int set)
 {
 	t_stack *temp;
 	t_stack *tmplist;
@@ -59,10 +71,16 @@ int		ra(t_hold *node)
 	while (tmplist->next != NULL)
 		tmplist = tmplist->next;
 	tmplist->next = temp;
+	if (set == 1)
+	{
+		bzero(cmd, 4);
+		ft_strcpy(cmd, "ra");
+		RA;
+	}
 	return (1);
 }
 
-int		rra(t_hold *node)
+int		rra(t_hold *node, char *cmd, int set)
 {
 	t_stack	*tmp;
 	t_stack	*lst;
@@ -76,5 +94,11 @@ int		rra(t_hold *node)
 	tmp->next = lst;
 	lst = tmp;
 	node->a = lst;
+	if (set == 1)
+	{
+		bzero(cmd, 4);
+		ft_strcpy(cmd, "rra");
+		RRA;
+	}
 	return (1);
 }

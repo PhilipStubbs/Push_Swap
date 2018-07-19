@@ -69,26 +69,24 @@ int					listsize(t_stack *lst);
 int					issorted(t_hold *node);
 int					islistsorted(t_stack *list, char ab);
 
-int					sa(t_hold *node);
-int					pa(t_hold *node);
-int					ra(t_hold *node);
-int					rra(t_hold *node);
+int					sa(t_hold *node, char *cmd, int set);
+int					pa(t_hold *node, char *cmd, int set);
+int					ra(t_hold *node, char *cmd, int set);
+int					rra(t_hold *node, char *cmd, int set);
 
-int					sb(t_hold *node);
-int					pb(t_hold *node);
-int					rb(t_hold *node);
-int					rrb(t_hold *node);
+int					sb(t_hold *node, char *cmd, int set);
+int					pb(t_hold *node, char *cmd, int set);
+int					rb(t_hold *node, char *cmd, int set);
+int					rrb(t_hold *node, char *cmd, int set);
 
-int					ss(t_hold *node);
-int					rr(t_hold *node);
-int					rrr(t_hold *node);
+int					ss(t_hold *node, char *cmd, int set);
+int					rr(t_hold *node, char *cmd, int set);
+int					rrr(t_hold *node, char *cmd, int set);
 
-int					simplerotatesort(t_hold *node);
-int					sortinhalfs(t_hold *node);
 int					lastlinkval(t_stack *lst);
 int					normlize(t_hold *node, int size);
-int					stackmergesort(t_hold *node);
 int					newsort(t_hold *node);
+void				dumbsort(t_hold *node, char *cmd);
 
 
 void				printstack(t_stack *list);

@@ -30,15 +30,6 @@ int		closestsmaxval(t_stack *tmp, int totalrange, int hi)
 	int	low;
 	t_stack *a;
 
-	// hi = -2147483648;
-	// a = tmp;
-	
-	// while(a != NULL)
-	// {
-	// 	if (a->pos > hi)
-	// 		hi = a->pos;
-	// 	a = a->next;
-	// }
 	a = tmp;
 	low = hi - totalrange;
 	if (low < 0)
@@ -47,7 +38,6 @@ int		closestsmaxval(t_stack *tmp, int totalrange, int hi)
 	{
 		if ((a->pos > low && a->pos <= hi))
 		{
-			// printf("%d to %d \n",low,hi  );
 			return(a->data);
 		}
 		a = a->next;
@@ -91,26 +81,17 @@ void	movea(t_hold *node,int totalrange, int size, char *cmd)
 			colouroutput(node, cmd);
 		if (tmp->data == closestmaxint)
 		{
-			ft_strcpy(cmd, "pb");
-			pb(node);
-			PB;
+			pb(node, cmd, 1);
 			count--;
 			tmp = node->a;
 			closestmaxint = closestsmaxval(tmp, totalrange, hi);
 			maxpos = maxposition(node->a ,closestmaxint, totalrange);
 		}
 		else if (maxpos >= size / 2)
-		{
-			ft_strcpy(cmd, "rra");
-			rra(node);
-			RRA;
-		}
+			rra(node, cmd, 1);
+
 		else if (maxpos < size / 2)
-		{
-			ft_strcpy(cmd, "ra");
-			ra(node);
-			RA;
-		}
+			ra(node, cmd, 1);
 		tmp = node->a;
 		if (node->supcolour == 1)
 			colouroutput(node, cmd);
@@ -131,34 +112,33 @@ void	sortbackin(t_hold *node, char *cmd)
 	ctoint = maxposition(b , maxint, 1);
 	while (b != NULL)
 	{
-		// printf("%s\n", );
 		if (b->pos == maxint)
 		{
-			ft_strcpy(cmd, "pa");
-			pa(node);
-			PA;
+			pa(node, cmd, 1);
 			b = node->b;
 			size = listsize(b);
 			maxint = maxval(b);
 			ctoint = maxposition(b , maxint, 1);
 		}
 		else if (ctoint >= size / 2)
-		{
-			ft_strcpy(cmd, "rrb");
-			rrb(node);
-			RRB;
-		}
+			rrb(node, cmd, 1);
 		else if (ctoint < size / 2)
-		{
-			ft_strcpy(cmd, "rb");
-			rb(node);
-			RB;
-		}
+			rb(node, cmd, 1);
 		if (node->supcolour == 1)
 			colouroutput(node, cmd);
 		debugmode(node);
 		b = node->b;
 	}
+}
+
+void	settotalrange(int *totalrange, t_hold *node)
+{
+	if (*totalrange != 0)
+		*totalrange = *totalrange - (*totalrange / 5);
+	else
+		*totalrange = node->size / 5;
+	if (*totalrange < 5)
+		*totalrange = 4;
 }
 
 int		newsort(t_hold *node)
@@ -168,24 +148,19 @@ int		newsort(t_hold *node)
 	int		size;
 	int		totalrange;
 
-	a = node->a;
 	cmd = (char*)ft_memalloc(sizeof(char) * 4);
 	totalrange = 0;
+	if (node->size <= 5)
+		dumbsort(node ,cmd);
 	while (1)
 	{
-		bzero(cmd, 4);
 		a = node->a;
 		if (a == NULL)
 			sortbackin(node, cmd);
 		if (issorted(node) == 1 && listsize(node->b) == 0)
 			break;
 		size = listsize(a);
-		if (totalrange != 0)
-			totalrange = totalrange - (totalrange / 5);
-		else
-			totalrange = node->size / 5;
-		if (totalrange < 5)
-			totalrange = 4;
+		settotalrange(&totalrange, node);
 		movea(node, totalrange, size, cmd);
 	}
 	if (node->colour == 1)

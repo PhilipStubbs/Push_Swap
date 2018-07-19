@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-int		sb(t_hold *node)
+int		sb(t_hold *node, char *cmd, int set)
 {
 	t_stack	*temp;
 	t_stack	*tempnext;
@@ -27,10 +27,16 @@ int		sb(t_hold *node)
 	temp->next = tempnext->next;
 	tempnext->next = temp;
 	node->b = tempnext;
+	if (set == 1)
+	{
+		bzero(cmd, 4);
+		ft_strcpy(cmd, "sb");
+		SB;
+	}
 	return (1);
 }
 
-int		pb(t_hold *node)
+int		pb(t_hold *node, char *cmd, int set)
 {
 	t_stack	*tempa;
 
@@ -43,10 +49,16 @@ int		pb(t_hold *node)
 		return (1);
 	tempa->next = node->b;
 	node->b = tempa;
+	if (set == 1)
+	{
+		bzero(cmd, 4);
+		ft_strcpy(cmd, "pb");
+		PB;
+	}
 	return (1);
 }
 
-int		rb(t_hold *node)
+int		rb(t_hold *node, char *cmd, int set)
 {
 	t_stack *temp;
 	t_stack *tmplist;
@@ -59,10 +71,16 @@ int		rb(t_hold *node)
 	while (tmplist->next != NULL)
 		tmplist = tmplist->next;
 	tmplist->next = temp;
+	if (set == 1)
+	{
+		bzero(cmd, 4);
+		ft_strcpy(cmd, "rb");
+		RB;
+	}
 	return (1);
 }
 
-int		rrb(t_hold *node)
+int		rrb(t_hold *node, char *cmd, int set)
 {
 	t_stack	*tmp;
 	t_stack	*lst;
@@ -76,5 +94,11 @@ int		rrb(t_hold *node)
 	tmp->next = lst;
 	lst = tmp;
 	node->b = lst;
+	if (set == 1)
+	{
+		bzero(cmd, 4);
+		ft_strcpy(cmd, "rrb");
+		RRB;
+	}
 	return (1);
 }
