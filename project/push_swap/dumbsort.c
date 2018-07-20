@@ -6,7 +6,7 @@
 /*   By: pstubbs <pstubbs@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/20 08:31:58 by pstubbs           #+#    #+#             */
-/*   Updated: 2018/07/20 12:00:43 by pstubbs          ###   ########.fr       */
+/*   Updated: 2018/07/20 12:45:41 by pstubbs          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,8 @@ void		dumbsort(t_hold *node, char *cmd)
 {
 	t_stack *a;
 
+	if (issorted(node) == 1 && listsize(node->b) == 0)
+		return ;
 	if (listsize(node->a) <= 3)
 	{
 		while (1)
