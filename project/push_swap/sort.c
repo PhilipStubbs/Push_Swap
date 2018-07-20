@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   newsort.c                                          :+:      :+:    :+:   */
+/*   sort.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pstubbs <pstubbs@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/20 08:39:01 by pstubbs           #+#    #+#             */
-/*   Updated: 2018/07/20 09:59:46 by pstubbs          ###   ########.fr       */
+/*   Updated: 2018/07/20 10:23:05 by pstubbs          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	settotalrange(int *totalrange, t_hold *node)
 		*totalrange = 4;
 }
 
-int		newsort(t_hold *node, char *cmd)
+int		sort(t_hold *node, char *cmd)
 {
 	t_stack	*a;
 	int		size;

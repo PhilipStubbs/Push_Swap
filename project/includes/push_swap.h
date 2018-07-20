@@ -6,7 +6,7 @@
 /*   By: pstubbs <pstubbs@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/07 14:01:50 by pstubbs           #+#    #+#             */
-/*   Updated: 2018/07/20 09:59:13 by pstubbs          ###   ########.fr       */
+/*   Updated: 2018/07/20 10:23:24 by pstubbs          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ int					rrr(t_hold *node, char *cmd, int set);
 
 int					lastlinkval(t_stack *lst);
 int					normlize(t_hold *node, int size);
-int					newsort(t_hold *node, char *cmd);
+int					sort(t_hold *node, char *cmd);
 int					maxposition(t_stack *lst, int max, int totalrange);
 void				dumbsort(t_hold *node, char *cmd);
 void				movea(t_hold *node, int totalrange, int size, char *cmd);

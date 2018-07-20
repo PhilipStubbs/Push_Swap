@@ -6,7 +6,7 @@
 /*   By: pstubbs <pstubbs@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/20 08:22:02 by pstubbs           #+#    #+#             */
-/*   Updated: 2018/07/20 08:49:38 by pstubbs          ###   ########.fr       */
+/*   Updated: 2018/07/20 10:49:40 by pstubbs          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,10 +55,8 @@ void		visualiser(t_hold *node, char *cmd)
 
 	a = node->a;
 	b = node->b;
-	if (ft_strcmp(cmd, "pa") == 0 || ft_strcmp(cmd, "pb") == 0)
-	{
-		printa(a);
-		printb(b);
-	}
+	(void)cmd;
+	printa(a);
+	printb(b);
 	ft_putstr(NRM);
 }

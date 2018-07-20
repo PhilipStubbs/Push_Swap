@@ -14,14 +14,14 @@ SRC = ../src/astackops.c \
 	../src/startpop.c \
 	../src/issorted.c \
 	../src/visualiser.c \
+	../src/maxval.c \
 
 PUSH = main_push_swap.c \
 	lastlinkval.c \
 	normlize.c \
-	newsort.c \
+	sort.c \
 	dumbsort.c \
 	sortbackin.c \
-	maxval.c \
 	movea.c \
 	closestsmaxval.c \
 	maxposition.c \

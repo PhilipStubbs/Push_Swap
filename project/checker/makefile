@@ -14,6 +14,7 @@ SRC = ../src/astackops.c \
 	../src/startpop.c \
 	../src/issorted.c \
 	../src/visualiser.c \
+	../src/maxval.c \
 
 CHECK = get_commands.c \
 	main_checker.c \
