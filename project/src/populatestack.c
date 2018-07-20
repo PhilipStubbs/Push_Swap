@@ -6,7 +6,7 @@
 /*   By: pstubbs <pstubbs@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/07 14:01:45 by pstubbs           #+#    #+#             */
-/*   Updated: 2018/07/12 06:17:26 by pstubbs          ###   ########.fr       */
+/*   Updated: 2018/07/20 09:09:28 by pstubbs          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,8 @@ int		createalist(char **str, t_hold *node)
 	ret = node->a;
 	while (str[size])
 		size++;
-	while (i < (size - (node->debug + node->colour + node->supcolour + 1)))
+	while (i < (size - (node->debug + node->colour + node->supcolour +
+	node->vis + 1)))
 	{
 		ret->next = (t_stack*)malloc(sizeof(t_stack));
 		ret = ret->next;

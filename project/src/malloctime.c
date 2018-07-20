@@ -6,7 +6,7 @@
 /*   By: pstubbs <pstubbs@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/07 14:01:39 by pstubbs           #+#    #+#             */
-/*   Updated: 2018/07/12 06:16:40 by pstubbs          ###   ########.fr       */
+/*   Updated: 2018/07/20 07:50:12 by pstubbs          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ t_hold	*malloctime(void)
 	ret->debug = 0;
 	ret->colour = 0;
 	ret->supcolour = 0;
+	ret->vis = 0;
 	ret->a = (t_stack*)malloc(sizeof(t_stack));
 	ret->b = (t_stack*)malloc(sizeof(t_stack));
 	ret->a->data = 0;

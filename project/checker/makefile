@@ -13,6 +13,7 @@ SRC = ../src/astackops.c \
 	../src/searchandmalloc.c \
 	../src/startpop.c \
 	../src/issorted.c \
+	../src/visualiser.c \
 
 CHECK = get_commands.c \
 	main_checker.c \

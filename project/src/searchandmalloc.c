@@ -6,20 +6,20 @@
 /*   By: pstubbs <pstubbs@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/07 14:01:55 by pstubbs           #+#    #+#             */
-/*   Updated: 2018/07/13 10:17:11 by pstubbs          ###   ########.fr       */
+/*   Updated: 2018/07/20 08:53:01 by pstubbs          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int		isflag(char *s, t_hold *node)
+int		isvalidflag(char *s, t_hold *node)
 {
 	int i;
 
 	i = 0;
 	if (s[i] == '-' && s[i + 1] == 'v')
 	{
-		node->debug = 1;
+		node->vis = 1;
 		return (1);
 	}
 	if (s[i] == '-' && s[i + 1] == 'c')
@@ -32,6 +32,21 @@ int		isflag(char *s, t_hold *node)
 		node->supcolour = 1;
 		return (1);
 	}
+	if (s[i] == '-' && s[i + 1] == 'd')
+	{
+		node->debug = 1;
+		return (1);
+	}
+	return (0);
+}
+
+int		isflag(char *s, t_hold *node)
+{
+	int i;
+
+	i = 0;
+	if (isvalidflag(s, node) == 1)
+		return (1);
 	i++;
 	while (s[0] == '-' && (s[i] >= '0' && s[i] <= '9'))
 	{

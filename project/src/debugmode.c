@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   debugmode.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pstubbs <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: pstubbs <pstubbs@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/07 14:01:14 by pstubbs           #+#    #+#             */
-/*   Updated: 2018/07/07 14:01:18 by pstubbs          ###   ########.fr       */
+/*   Updated: 2018/07/20 07:56:12 by pstubbs          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void	debugmode(t_hold *node)
 	t_stack	*tempb;
 	int		isplaced;
 
-	if (node->debug != 1)
+	if (node->debug == 0)
 		return ;
 	tempa = node->a;
 	tempb = node->b;

@@ -1,13 +1,25 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   normlize.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: pstubbs <pstubbs@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/07/20 08:35:47 by pstubbs           #+#    #+#             */
+/*   Updated: 2018/07/20 08:37:40 by pstubbs          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 int		max(t_stack *list)
 {
-	int hi;
-	t_stack *tmp;
+	int		hi;
+	t_stack	*tmp;
 
 	tmp = list;
 	hi = -2147483648;
-	while(tmp != NULL)
+	while (tmp != NULL)
 	{
 		if (tmp->data > hi)
 			hi = tmp->data;
@@ -18,13 +30,12 @@ int		max(t_stack *list)
 
 int		maxinstack(t_stack *list, int prevmax)
 {
-	int hi;
-	t_stack *tmp;
+	int		hi;
+	t_stack	*tmp;
 
 	tmp = list;
 	hi = -2147483648;
-
-	while(tmp != NULL)
+	while (tmp != NULL)
 	{
 		if (tmp->data > hi && tmp->data < prevmax)
 			hi = tmp->data;
@@ -41,9 +52,7 @@ int		ispossorted(t_stack *list)
 	while (tmpa != NULL)
 	{
 		if (tmpa->pos == 0)
-		{	
 			return (0);
-		}
 		tmpa = tmpa->next;
 	}
 	return (1);
@@ -66,19 +75,11 @@ int		normlize(t_hold *node, int size)
 				size--;
 				a = node->a;
 				tmpmax = maxinstack(a, tmpmax);
-				break;
+				break ;
 			}
 			a = a->next;
 		}
 		a = node->a;
 	}
-
-	// t_stack *tmp;
-	// tmp = node->a;
-	// while(tmp != NULL)
-	// {
-	// 	printf("%d:[%d]\n",tmp->data, tmp->pos );
-	// 	tmp = tmp->next;
-	// }
 	return (1);
 }

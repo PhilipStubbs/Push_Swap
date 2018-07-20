@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   colouroutput.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: pstubbs <pstubbs@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/07/20 08:14:36 by pstubbs           #+#    #+#             */
+/*   Updated: 2018/07/20 08:21:48 by pstubbs          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "push_swap.h"
 
@@ -49,10 +60,8 @@ int				*lastcmda(char *cmd, t_stack *temp)
 	return (ret);
 }
 
-
-
 static int		output(t_stack *temp, int count, char *cmd, int ab)
-{	
+{
 	int *loc;
 
 	if (ab == 1)
@@ -67,14 +76,12 @@ static int		output(t_stack *temp, int count, char *cmd, int ab)
 	return (1);
 }
 
-static void		loop(t_stack *tempa, t_stack *tempb, int isplaced, int size, char *cmd)
+static void		loop(t_stack *tempa, t_stack *tempb, int isplaced, char *cmd)
 {
-	int i;
 	int count;
 
-	i = 0;
 	count = 0;
-	while (i < size)
+	while (tempa || tempb)
 	{
 		if (tempa != NULL)
 		{
@@ -87,28 +94,26 @@ static void		loop(t_stack *tempa, t_stack *tempb, int isplaced, int size, char *
 			isplaced = output(tempb, count, cmd, 2);
 			tempb = tempb->next;
 		}
-		i++;
 		if (isplaced == 1)
 			ft_putchar_fd('\n', 2);
 		isplaced = 0;
 		count++;
 	}
-	ft_putendl_fd("___	___", 2);
-	ft_putendl_fd(" a	 b", 2);
-	
 }
 
-void		colouroutput(t_hold *node, char *cmd)
+void			colouroutput(t_hold *node, char *cmd)
 {
 	t_stack	*tempa;
 	t_stack	*tempb;
 	int		isplaced;
 
+	if (node->vis == 1)
+		visualiser(node, cmd);
 	if (node->colour != 1 && node->supcolour != 1)
 		return ;
 	tempa = node->a;
 	tempb = node->b;
 	isplaced = 0;
-	loop(tempa, tempb, isplaced, node->size, cmd);
-	printf("_%d_	_%d_\n",listsize(tempa) ,listsize(tempb));
+	loop(tempa, tempb, isplaced, cmd);
+	ft_putendl_fd("___	___ \n a	 b", 2);
 }

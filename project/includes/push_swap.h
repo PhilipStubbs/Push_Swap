@@ -6,7 +6,7 @@
 /*   By: pstubbs <pstubbs@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/07 14:01:50 by pstubbs           #+#    #+#             */
-/*   Updated: 2018/07/18 10:23:08 by pstubbs          ###   ########.fr       */
+/*   Updated: 2018/07/20 09:12:14 by pstubbs          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 # define PUSH_SWAP_H
 
 # include "../libft/libft.h"
-#include <stdio.h>
-
 # define ERROR ft_putendl_fd("Error", 2);
 
 # define SA ft_putendl_fd("sa", 1);
@@ -30,14 +28,14 @@
 # define RR ft_putendl_fd("rr", 1);
 # define RRR ft_putendl_fd("rrr", 1);
 
-#define NRM  "\x1B[0m"
-#define RED  "\x1B[31m"
-#define GRN  "\x1B[32m"
-#define YEL  "\x1B[33m"
-#define BLU  "\x1B[34m"
-#define MAG  "\x1B[35m"
-#define CYN  "\x1B[36m"
-#define WHT  "\x1B[37m"
+# define NRM  "\x1B[0m"
+# define RED  "\x1B[31m"
+# define GRN  "\x1B[32m"
+# define YEL  "\x1B[33m"
+# define BLU  "\x1B[34m"
+# define MAG  "\x1B[35m"
+# define CYN  "\x1B[36m"
+# define WHT  "\x1B[37m"
 
 typedef	struct		s_stack
 {
@@ -54,6 +52,7 @@ typedef	struct		s_pushswap
 	int				loc;
 	int				size;
 	int				debug;
+	int				vis;
 	int				colour;
 	int				supcolour;
 }					t_hold;
@@ -68,6 +67,7 @@ t_stack				*endpop(t_stack **list);
 int					listsize(t_stack *lst);
 int					issorted(t_hold *node);
 int					islistsorted(t_stack *list, char ab);
+void				visualiser(t_hold *node, char *cmd);
 
 int					sa(t_hold *node, char *cmd, int set);
 int					pa(t_hold *node, char *cmd, int set);
@@ -89,7 +89,4 @@ int					newsort(t_hold *node);
 int					maxposition(t_stack *lst, int max, int totalrange);
 void				dumbsort(t_hold *node, char *cmd);
 
-
-void				printstack(t_stack *list);
 #endif
-// ARG=`ruby -e "puts (0..16).to_a.shuffle.join(' ')"`;
