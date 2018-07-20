@@ -6,7 +6,7 @@
 /*   By: pstubbs <pstubbs@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/20 08:31:58 by pstubbs           #+#    #+#             */
-/*   Updated: 2018/07/20 08:34:53 by pstubbs          ###   ########.fr       */
+/*   Updated: 2018/07/20 12:00:43 by pstubbs          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void		movesmalltob(t_hold *node, char *cmd)
 	{
 		a = node->a;
 		min = minval(node->a);
-		minloc = maxposition(node->a, min, 0);
+		minloc = maxposition(node->a, min, 1);
 		if (a->pos == min)
 		{
 			pb(node, cmd, 1);
