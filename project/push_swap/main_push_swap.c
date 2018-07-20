@@ -6,7 +6,7 @@
 /*   By: pstubbs <pstubbs@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/07 14:01:33 by pstubbs           #+#    #+#             */
-/*   Updated: 2018/07/20 08:35:27 by pstubbs          ###   ########.fr       */
+/*   Updated: 2018/07/20 10:00:16 by pstubbs          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 int		main(int arc, char **arv)
 {
 	t_hold	*node;
+	char	*cmd;
 
 	node = malloctime();
 	if (searchandmalloc(arv, node, arc) == 0)
@@ -23,6 +24,7 @@ int		main(int arc, char **arv)
 		return (0);
 	node->size = listsize(node->a);
 	normlize(node, node->size);
-	newsort(node);
+	cmd = (char*)ft_memalloc(sizeof(char) * 4);
+	newsort(node, cmd);
 	return (1);
 }

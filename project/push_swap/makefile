@@ -20,6 +20,11 @@ PUSH = main_push_swap.c \
 	normlize.c \
 	newsort.c \
 	dumbsort.c \
+	sortbackin.c \
+	maxval.c \
+	movea.c \
+	closestsmaxval.c \
+	maxposition.c \
 
 OBJ = *.o
 

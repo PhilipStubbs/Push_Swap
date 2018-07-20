@@ -1,23 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checker.h                                          :+:      :+:    :+:   */
+/*   closestsmaxval.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pstubbs <pstubbs@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/07/10 12:39:23 by pstubbs           #+#    #+#             */
-/*   Updated: 2018/07/20 10:00:35 by pstubbs          ###   ########.fr       */
+/*   Created: 2018/07/20 09:51:08 by pstubbs           #+#    #+#             */
+/*   Updated: 2018/07/20 09:52:35 by pstubbs          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CHECKER_H
-# define CHECKER_H
+#include "push_swap.h"
 
-# include "push_swap.h"
+int		closestsmaxval(t_stack *tmp, int totalrange, int hi)
+{
+	int		low;
+	t_stack	*a;
 
-# define OK ft_putendl_fd("OK", 2);
-# define KO ft_putendl_fd("KO", 2);
-
-int		get_commands(t_hold *node);
-
-#endif
+	a = tmp;
+	low = hi - totalrange;
+	if (low < 0)
+		low = 0;
+	while (a != NULL)
+	{
+		if ((a->pos > low && a->pos <= hi))
+		{
+			return (a->data);
+		}
+		a = a->next;
+	}
+	return (0);
+}

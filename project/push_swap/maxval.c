@@ -1,23 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checker.h                                          :+:      :+:    :+:   */
+/*   maxval.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pstubbs <pstubbs@student.42.fr>            +#+  +:+       +#+        */
+/*   By: pstubbs <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/07/10 12:39:23 by pstubbs           #+#    #+#             */
-/*   Updated: 2018/07/20 10:00:35 by pstubbs          ###   ########.fr       */
+/*   Created: 2018/07/20 09:53:37 by pstubbs           #+#    #+#             */
+/*   Updated: 2018/07/20 09:54:05 by pstubbs          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CHECKER_H
-# define CHECKER_H
+#include "push_swap.h"
 
-# include "push_swap.h"
+int		maxval(t_stack *lst)
+{
+	int		hi;
+	t_stack	*tmp;
 
-# define OK ft_putendl_fd("OK", 2);
-# define KO ft_putendl_fd("KO", 2);
-
-int		get_commands(t_hold *node);
-
-#endif
+	tmp = lst;
+	hi = -2147483648;
+	while (tmp != NULL)
+	{
+		if (tmp->pos > hi)
+			hi = tmp->pos;
+		tmp = tmp->next;
+	}
+	return (hi);
+}
