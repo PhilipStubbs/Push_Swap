@@ -41,8 +41,7 @@ The colour is the last operation completed.
 | Stack visualizer    |                    |                    |
 | --------------------|--------------------|--------------------|
 | <img width="86" alt="screen shot 2018-09-12 at 10 24 46" src="https://user-images.githubusercontent.com/24510543/45412370-b8f10700-b676-11e8-9aa8-b87362a71e7c.png">           | <img width="90" alt="screen shot 2018-09-12 at 10 26 13" src="https://user-images.githubusercontent.com/24510543/45412372-ba223400-b676-11e8-82bf-a235ed894014.png"> | <img width="87" alt="screen shot 2018-09-12 at 10 25 34" src="https://user-images.githubusercontent.com/24510543/45412376-bb536100-b676-11e8-9a8f-98debed1ec8d.png"> |
-| <img width="92" alt="screen shot 2018-09-12 at 10 34 31" src="https://user-images.githubusercontent.com/24510543/45412578-46ccf200-b677-11e8-9b3b-1efc553cc751.png">      | <img width="98" alt="screen shot 2018-09-12 at 10 34 52" src="https://user-images.githubusercontent.com/24510543/45412586-492f4c00-b677-11e8-9375-4874491aa101.png">      |   <img width="88" alt="screen shot 2018-09-12 at 10 25 43" src="https://user-images.githubusercontent.com/24510543/45412378-bd1d2480-b676-11e8-89de-f9cc84b05357.png">
- |
+| <img width="92" alt="screen shot 2018-09-12 at 10 34 31" src="https://user-images.githubusercontent.com/24510543/45412578-46ccf200-b677-11e8-9b3b-1efc553cc751.png">      | <img width="98" alt="screen shot 2018-09-12 at 10 34 52" src="https://user-images.githubusercontent.com/24510543/45412586-492f4c00-b677-11e8-9375-4874491aa101.png">      |   <img width="88" alt="screen shot 2018-09-12 at 10 25 43" src="https://user-images.githubusercontent.com/24510543/45412378-bd1d2480-b676-11e8-89de-f9cc84b05357.png"> |
 
 
 ---
